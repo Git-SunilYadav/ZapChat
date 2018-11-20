@@ -40,3 +40,6 @@ We propose to create a web-chat application for desktop. This application will h
 
 18) As a user, I should be able to delete any messages I sent.
 
+## Model Design
+
+<img src="https://raw.githubusercontent.com/neu-mis-info6150-fall-2018/final-project-thewolfpack/master/Chat_Model_Design.svg?token=ANS9yVdk1pUu_4VcnZmfsBvkc4v_NI-Vks5b_MUcwA%3D%3D" >
