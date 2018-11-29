@@ -1,0 +1,28 @@
+$color_1: #fff;
+$color_2: #000;
+$background_color_1: #006699;
+$background_color_2: #efefef;
+
+.mainDiv {
+	background-color: $background_color_1;
+	color: $color_1;
+	margin: 0px auto;
+	padding: 5px;
+}
+.receivedDiv {
+	background-color: $background_color_2;
+	color: $color_2;
+	float: left;
+	width: 100%;
+	text-align: left;
+}
+.sentDiv {
+	background-color: $background_color_2;
+	color: $color_2;
+	width: 100%;
+	float: right;
+	text-align: right;
+}
+.clear {
+	clear: both;
+}
