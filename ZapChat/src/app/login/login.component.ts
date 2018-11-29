@@ -14,7 +14,7 @@ password: String = '';
 
   ngOnInit() {
   }
-validate(){
+validate() {
     const phoneNumber = document.forms['loginForm']['phoneNumber'].value;
     const phoneNumberRegex = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
     const phoneNumberResult = phoneNumberRegex.test(phoneNumber);
