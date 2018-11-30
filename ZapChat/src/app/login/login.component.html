@@ -1,0 +1,20 @@
+<div class="loginPanel">
+  <form name="loginForm" class="content">
+  <div class="header">
+          <h1>Log in</h1>
+             <input type="text" name='phoneNumber' placeholder="Phone Number" required maxlength="12">
+             <div class="toolTip"><img src="assets/images/i-button.jpg" height="12px" width="12px">&nbsp;
+              <span class="toolTipText">Phone Number length should not be more than 10 numbers</span>
+            </div>
+            <br>
+            <input type="password" name='password' placeholder="Password.." required>
+             <div class="toolTip"><img src="assets/images/i-button.jpg" height="12px" width="12px">&nbsp;
+              <span class="toolTipText">Please enter Your Password</span>
+            </div>
+            <p><a id="forgot" href="">Forgot Password?</a></p><div class="login">
+             <button type="button" class='loginButton' id='loginbtn' (click)="onClickLogin">Log in</button>
+  </div>
+ <p>New user?<a routerLink="/signUp">Sign Up</a></p>
+  </div>
+  </form>
+</div>

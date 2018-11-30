@@ -1,0 +1,102 @@
+$color_1: black;
+$color_2: #ffad33;
+$color_3: bisque;
+$color_4: #fff;
+$font_family_1: Arial, Helvetica, sans-serif;
+$background_color_1: #ddd;
+$background_color_2: #4CAF50;
+$border_color_1: #f5f255;
+$background_color_5: #fefefe;
+$background_color_6: black;
+.content{
+	background-color: $background_color_5;
+	margin: 3% auto 3% auto;
+	border: 1px solid #888;
+	width: 27%;
+}
+* {
+	box-sizing: border-box;
+}
+input[type=text]  {
+	width: 250px;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
+	&:focus {
+		background-color: $background_color_1;
+		outline: none;
+	}
+}
+input[type=password]{
+	width: 250px;
+	padding: 15px;
+	margin: 5px 0 22px 0;
+	border: none;
+	background: #f1f1f1;
+	&:focus {
+		background-color: $background_color_1;
+		outline: none;
+	}
+}
+.header {
+	font-family: $font_family_1;
+//	font: 6em "Comic Sans MS";
+	color: $color_1;
+	padding-left: 1.5em;
+}
+.forgotPassword {
+	padding-left: 16em;
+	color: $color_2;
+}
+#forgot {
+	&:hover {
+		opacity: 1;
+	}
+}
+.login {
+
+	padding-right: 2em;
+}
+button {
+	background-color: $background_color_2;
+	color: $color_1;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 250px;
+	opacity: 0.9;
+	&:hover {
+		opacity: 1;
+	}
+}
+.loginButton {
+	width: 100%;
+	color: $color_1;
+	background-color: $background_color_2;
+	&:hover {
+		cursor: pointer;
+	}
+}
+.toolTip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+	.toolTipText {
+		visibility: hidden;
+		width: 120px;
+		background-color: $background_color_6;
+		color: $color_4;
+		text-align: center;
+		border-radius: 6px;
+		padding: 5px 0;
+		position: absolute;
+		z-index: 1;
+	}
+	&:hover {
+		.toolTipText {
+			visibility: visible;
+		}
+	}
+}
