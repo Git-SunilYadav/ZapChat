@@ -58,7 +58,20 @@ input[type=password]{
 
 	padding-right: 2em;
 }
-#loginbtn {
+button {
+	background-color: $background_color_2;
+	color: $color_1;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 250px;
+	opacity: 0.9;
+	&:hover {
+		opacity: 1;
+	}
+}
+.loginButton {
 	width: 100%;
 	color: $color_1;
 	background-color: $background_color_2;

@@ -12,7 +12,7 @@ $background_color_6: black;
 
 * {
 	box-sizing: border-box;
-}
+  }
 input[type=text] {
 	width: 250px;
 	padding: 15px;
@@ -101,13 +101,6 @@ hr {
 		cursor: pointer;
 	}
 }
-.clearfix {
-	&::after {
-		content: "";
-		clear: both;
-		display: table;
-	}
-}
 .toolTip {
 	position: relative;
 	display: inline-block;
@@ -129,11 +122,4 @@ hr {
 		}
 	}
 }
-@media screen and (max-width: 300px) {
-	.cancelButton {
-		width: 100%;
-	}
-	.signUpButton {
-		width: 100%;
-	}
-}
+

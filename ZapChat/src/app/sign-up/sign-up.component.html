@@ -32,13 +32,10 @@
        <div class="toolTip"><img src="assets/images/i-button.jpg" height="12px" width="12px">
          <span class="toolTipText">This field should match with the Password Field</span>
        </div>
-       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
-
-       <div class="clearfix">
+       <p>By creating an account you agree to our <a routerLink="/terms">Terms and Privacy Policy</a>.</p>
          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelButton">Cancel</button>
          &nbsp;&nbsp;
          <button type="button" class="signUpButton" (click)="validation()">Sign Up</button>
-       </div>
      </div>
    </form>
  </div>
