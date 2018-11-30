@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { AuthenticateUserService } from './authenticate-user.service';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClient,
     RouterModule.forRoot([
       {
         path: 'signUp',
@@ -28,7 +31,9 @@ import { SignUpComponent } from './sign-up/sign-up.component';
       }
   ])
   ],
-  providers: [],
+  providers: [
+    AuthenticateUserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

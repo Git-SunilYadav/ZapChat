@@ -1,5 +1,5 @@
 export class loginDetails{
-    phoneNumber : string;
-    password : string;
-
+    phoneNumber : String;
+    password : String;
+    isValid : boolean;
 }
