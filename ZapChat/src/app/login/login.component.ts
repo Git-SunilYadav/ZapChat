@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { loginDetails } from './loginDetails';
+import { LoginDetails } from './loginDetails';
 import { AuthenticateUserService } from '../authenticate-user.service';
 @Component({
   selector: 'app-login',
@@ -7,13 +7,13 @@ import { AuthenticateUserService } from '../authenticate-user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-public loginDetails : loginDetails;
+loginDetails: LoginDetails;
 phoneNumber: String = '';
 password: String = '';
 response: String = '';
 isValid: Boolean = true;
 
-constructor(private authenticate : AuthenticateUserService) {
+constructor(private authenticate: AuthenticateUserService) {
 
    }
 
@@ -22,20 +22,30 @@ constructor(private authenticate : AuthenticateUserService) {
 
   onClickLogin(){
     this.validate();
-    this.loginDetails = new loginDetails();
+    this.loginDetails = new LoginDetails();
     this.loginDetails.isValid = false;
     this.loginDetails.phoneNumber = this.phoneNumber;
     this.loginDetails.password = this.password;
 
     if(this.isValid){
-      this.checkLogin(this.phoneNumber, this.password);
-    }
-      }
-    
-  
+      if(this.checkLogin(this.phoneNumber, this.password)){
+        debugger;
 
+        setTimeout(()=>{    
+          if(this.loginDetails.isValid)
+        {
+          alert("login successful");
+        }
+        else{
+          alert("Invalid credentials");
+        }
+     }, 500);
+    }
+    }
+  }
 validate() {
     const phoneNumber = document.forms['loginForm']['phoneNumber'].value;
+    this.phoneNumber = phoneNumber.replace(/\s/g, '');
     const phoneNumberRegex = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
     const phoneNumberResult = phoneNumberRegex.test(phoneNumber);
     if (!phoneNumberResult) {
@@ -43,6 +53,7 @@ validate() {
         this.isValid = false;
     }
     const password = document.forms['loginForm']['password'].value;
+    this.password = password;
     const passwordRegex = /^[a-zA-Z0-9!@#\$%\^&\*]{8,}$/;
     const passwordResult = passwordRegex.test(password);
     if (!passwordResult) {
@@ -50,15 +61,10 @@ validate() {
         this.isValid = false;
     }
     return this.isValid;
-    
   }
+
  checkLogin(loginId, password) {
-  this.authenticate.loginAuthenticate(loginId,password).subscribe(loginDetails => this.loginDetails = loginDetails);
-  if(this.loginDetails.isValid){
-    alert("Login successful");
-  }
-  else{
-    alert("Invalid Credentials");
-  }
+    this.authenticate.loginAuthenticate(loginId, password).subscribe(loginDetails => this.loginDetails = loginDetails);
+    return true;
  }
 }

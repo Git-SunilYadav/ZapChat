@@ -8,9 +8,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { AuthenticateUserService } from './authenticate-user.service';
-import { HttpClient } from '@angular/common/http';
 import { TermsComponent } from './terms/terms.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,7 @@ import { HttpClient } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClient,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: 'terms',
