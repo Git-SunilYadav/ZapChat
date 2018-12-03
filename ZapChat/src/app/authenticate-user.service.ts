@@ -19,7 +19,7 @@ public loginDetails: LoginDetails;
     this.loginDetails.phoneNumber = loginId;
     this.loginDetails.password = password;
 
-    return this.http.post<LoginDetails>('http://localhost:3000/user', this.loginDetails)
+    return this.http.post<LoginDetails>('http://localhost:3000/user/login', this.loginDetails)
     .pipe();
    }
-}
+  }
