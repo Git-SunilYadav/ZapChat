@@ -12,6 +12,33 @@ router.get('/', (req, res, next) => {
     })
 });
 
+//api for sign up
+router.post('/', (req, res, next) => {
+    let ref = db.ref("chat/");
+    UserExist(ref, req, res, next,  function (data) {
+        if(!data){
+            console.log("if statement");
+            CreateUser(ref, req, res, next,  function (data) {
+            });
+            res.status(200).json({
+                message: 'User created successfully',
+                isValid: true
+            }).end();
+            
+        }
+        else
+        {
+                console.log("else statement");
+                res.status(409).json({
+                    message: 'User already exist!'
+                }).end();
+        }
+
+    });
+
+});
+
+
 router.post('/login/', (req, res, next) => {
     var ref = db.ref("chat/");
     AuthenticateUser(ref, req, res, next,  function (data) {
@@ -52,6 +79,24 @@ function AuthenticateUser(ref, req, res, next,callback) {
             }
         });
         callback(false);
+    });
+};
+
+// Function to check for existing user 
+function UserExist(ref, req, res, next,callback) {
+    console.log("in user exist function ");
+    ref.once("value", function (snap) {
+        let isUserExist = false;
+        snap.forEach(function (number) {
+            console.log("Entered phoneNumber: " + req.body.phoneNumber);
+            if (number.key == req.body.phoneNumber) {
+                console.log("PhoneNumber in Firebase: " + number.key);
+                isUserExist = true;
+               //callback(true);
+            }
+        }).then( function(){
+           callback(isUserExist);
+        });
     });
 };
 
