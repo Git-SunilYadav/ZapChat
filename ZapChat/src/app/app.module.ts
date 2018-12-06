@@ -10,13 +10,15 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AuthenticateUserService } from './authenticate-user.service';
 import { TermsComponent } from './terms/terms.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactListComponent } from './contact-list/contact-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignUpComponent,
-    TermsComponent
+    TermsComponent,
+    ContactListComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,10 @@ import { HttpClientModule } from '@angular/common/http';
       {
         path: 'signUp',
         component: SignUpComponent
+      },
+      {
+        path: 'contactList',
+        component: ContactListComponent
       },
       {
       path: '',
