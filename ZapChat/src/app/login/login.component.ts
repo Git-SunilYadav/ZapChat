@@ -1,6 +1,10 @@
+import { RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LoginDetails } from './loginDetails';
 import { AuthenticateUserService } from '../authenticate-user.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +17,7 @@ password: String = '';
 response: String = '';
 isValid: Boolean = true;
 
-constructor(private authenticate: AuthenticateUserService) {
+constructor(private authenticate: AuthenticateUserService, private router: Router, private route: ActivatedRoute,) {
 
    }
 
@@ -29,18 +33,21 @@ constructor(private authenticate: AuthenticateUserService) {
 
     if(this.isValid){
       if(this.checkLogin(this.phoneNumber, this.password)){
-        debugger;
 
-        setTimeout(()=>{    
+        setTimeout(()=>{
           if(this.loginDetails.isValid)
         {
           alert("login successful");
+          //return this.router.navigate([/<a [routerLink]="[ '/chatPage', ChatPageComponent ]">chat</a>]);
+          ///<a [routerLink]="[ '/path']">name</a>
+          this.router.navigate(['chatPage']);
         }
         else{
           alert("Invalid credentials");
         }
      }, 500);
     }
+
     }
   }
 validate() {
@@ -66,5 +73,7 @@ validate() {
  checkLogin(loginId, password) {
     this.authenticate.loginAuthenticate(loginId, password).subscribe(loginDetails => this.loginDetails = loginDetails);
     return true;
- }
+  }
+
+
 }
