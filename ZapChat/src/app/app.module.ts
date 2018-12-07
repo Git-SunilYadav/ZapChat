@@ -14,6 +14,7 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import {AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
+import { AddContactsComponent } from './add-contacts/add-contacts.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { environment } from 'src/environments/environment';
     LoginComponent,
     SignUpComponent,
     TermsComponent,
-    ContactListComponent
+    ContactListComponent,
+    AddContactsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,10 @@ import { environment } from 'src/environments/environment';
       {
         path: 'contactList',
         component: ContactListComponent
+      },
+      {
+        path: 'addcontacts',
+        component: AddContactsComponent
       },
       {
       path: '',
