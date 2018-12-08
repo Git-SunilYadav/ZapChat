@@ -55,10 +55,6 @@ import { environment } from 'src/environments/environment';
         path: 'chatPage/:number',
         component: ChatPageComponent
       },
-      {
-        path: 'chatPage/:number',
-        component: ChatPageComponent
-      },
        {
         path: 'ChatWindow',
         component: ChatWindowComponent
