@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { AuthenticateUserService } from './authenticate-user.service';
 import { TermsComponent } from './terms/terms.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import { ChatPageComponent } from './chat-page/chat-page.component';
 import {AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
@@ -21,7 +23,8 @@ import { environment } from 'src/environments/environment';
     LoginComponent,
     SignUpComponent,
     TermsComponent,
-    ContactListComponent
+    ContactListComponent,
+    ChatPageComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { environment } from 'src/environments/environment';
         component: TermsComponent
       },
       {
-        path: 'signUp',
+        path: 'signUp:',
         component: SignUpComponent
       },
       {
@@ -45,6 +48,10 @@ import { environment } from 'src/environments/environment';
       {
       path: '',
       component: LoginComponent
+      },
+      {
+        path: 'chatPage/:number',
+        component: ChatPageComponent
       }
   ])
   ],

@@ -8,6 +8,11 @@ $background_color_2: #4CAF50;
 $border_color_1: #f5f255;
 $background_color_5: #fefefe;
 $background_color_6: black;
+.loginPanel{
+  background-image: url('/assets/images/chat-background.png');
+  background-repeat: no-repeat;
+  height: 525px;
+}
 .content{
 	background-color: $background_color_5;
 	margin: 3% auto 3% auto;
