@@ -13,6 +13,11 @@ $background_color_6: black;
 * {
 	box-sizing: border-box;
   }
+  .id01{
+    background-image: url('/assets/images/chat-background.png');
+    background-repeat: no-repeat;
+    height: 525px;
+  }
 input[type=text] {
 	width: 250px;
 	padding: 15px;

@@ -1,0 +1,66 @@
+$color_1: #fff;
+$color_2: #000;
+$background_color_1: #006699;
+$background_color_2: #efefef;
+$font_family_1: sans-serif;
+$padding_value_1: 10px;
+$padding_value_2: 5px;
+$margin_value: 8px;
+$font_size_value: 17px;
+
+.mainDiv {
+	background-color: lightblue;
+	color: $color_1;
+	margin: 0px auto;
+	padding: $padding_value_2;
+	overflow: auto;
+}
+.receivedDiv {
+	background-color: $background_color_2;
+	color: $color_2;
+	float: left;
+	width: 60%;
+	text-align: left;
+	margin-bottom: $margin_value;
+	border-radius: $padding_value_2;
+	padding-left: $padding_value_1;
+	padding-right: $padding_value_1;
+	padding-top: $padding_value_2;
+	padding-bottom: $padding_value_2;
+}
+.sentDiv {
+	background-color: $background_color_2;
+	color: $color_2;
+	width: 60%;
+	float: right;
+	text-align: right;
+	margin-bottom: $margin_value;
+	border-radius: $padding_value_2;
+	padding-left: $padding_value_1;
+	padding-right: $padding_value_1;
+	padding-top: $padding_value_2;
+	padding-bottom: $padding_value_2;
+}
+.clear {
+	clear: both;
+}
+
+* {
+	font-size: $font_size_value;
+	font-family: $font_family_1;
+}
+
+.textBox{
+	position: relative;
+	bottom: 15px;
+}
+
+input[type=text]{
+	width: 95%;
+	padding: 12px 20px;
+  	margin: 8px 0;
+  	display: inline-block;
+  	border: 1px solid #606060;
+  	border-radius: 4px;
+	box-sizing: border-box;
+}
