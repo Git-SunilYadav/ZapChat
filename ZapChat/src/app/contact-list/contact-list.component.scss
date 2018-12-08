@@ -1,5 +1,6 @@
 $background_color_1: #ddd;
 $background_color_2: beige;
+$color_1: black;
 
 *::-webkit-scrollbar {
 	width: 10px;
@@ -22,6 +23,8 @@ ul {
 	padding: 0;
 	li {
 		padding-bottom: 10px;
+		border: bottom color $color_1;;
+		border-bottom-width: 1px;
 		&:hover {
 			background-color: $background_color_2;
 			-webkit-animation-delay: 1s;
@@ -37,5 +40,5 @@ ul {
 	transition: 0.2s;
 }
 .contact{
-
+ padding: 5px;
 }

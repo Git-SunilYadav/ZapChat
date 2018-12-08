@@ -17,6 +17,7 @@ import { ChatPageComponent } from './chat-page/chat-page.component';
 import {AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
+import { AddContactsComponent } from './add-contacts/add-contacts.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { environment } from 'src/environments/environment';
     SignUpComponent,
     TermsComponent,
     ContactListComponent,
+    AddContactsComponent,
     ChatPageComponent,
     ChatWindowComponent
   ],
@@ -46,6 +48,10 @@ import { environment } from 'src/environments/environment';
       {
         path: 'contactList',
         component: ContactListComponent
+      },
+      {
+        path: 'addcontacts',
+        component: AddContactsComponent
       },
       {
       path: '',
