@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ChatWindowComponent } from './chat-window/chat-window.component';
 
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -24,7 +25,8 @@ import { environment } from 'src/environments/environment';
     SignUpComponent,
     TermsComponent,
     ContactListComponent,
-    ChatPageComponent
+    ChatPageComponent,
+    ChatWindowComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,10 @@ import { environment } from 'src/environments/environment';
       {
         path: 'chatPage/:number',
         component: ChatPageComponent
+      },
+       {
+        path: 'ChatWindow',
+        component: ChatWindowComponent
       }
   ])
   ],
