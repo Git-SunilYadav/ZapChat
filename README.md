@@ -42,4 +42,4 @@ We propose to create a web-chat application for desktop. This application will h
 
 ## Model Design
 
-<img src="https://github.com/neu-mis-info6150-fall-2018/final-project-thewolfpack/blob/sunil-readme-file-update/Chat_Model_Design.svg" >
+<img src="https://github.com/neu-mis-info6150-fall-2018/final-project-thewolfpack/blob/master/Chat_Model_Design.svg" >

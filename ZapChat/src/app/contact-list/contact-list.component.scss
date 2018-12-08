@@ -1,0 +1,41 @@
+$background_color_1: #ddd;
+$background_color_2: beige;
+
+*::-webkit-scrollbar {
+	width: 10px;
+}
+*::-webkit-scrollbar-thumb {
+	background: rgb(100, 100, 100);
+	border-radius: 10px;
+}
+#contactPanel {
+	width: 30%;
+	height: 100%;
+	background-color: $background_color_1;
+	position: absolute;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: none;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	li {
+		padding-bottom: 10px;
+		&:hover {
+			background-color: $background_color_2;
+			-webkit-animation-delay: 1s;
+		}
+	}
+}
+.contactList {
+	cursor: pointer;
+	position: relative;
+	padding: 8px 12px 40px;
+	list-style-type: none;
+	font-size: 18px;
+	transition: 0.2s;
+}
+.contact{
+
+}
