@@ -42,7 +42,7 @@ import { AddContactsComponent } from './add-contacts/add-contacts.component';
         component: TermsComponent
       },
       {
-        path: 'signUp:',
+        path: 'signUp',
         component: SignUpComponent
       },
       {
@@ -62,7 +62,7 @@ import { AddContactsComponent } from './add-contacts/add-contacts.component';
         component: ChatPageComponent
       },
        {
-        path: 'ChatWindow',
+        path: 'chatWindow',
         component: ChatWindowComponent
       }
   ])

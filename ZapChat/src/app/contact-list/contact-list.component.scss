@@ -15,6 +15,7 @@ $color_1: black;
 	background-color: $background_color_1;
 	position: absolute;
 	overflow: scroll;
+	overflow-y: visible;
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: none;
 }
