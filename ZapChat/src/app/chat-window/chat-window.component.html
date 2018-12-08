@@ -1,5 +1,7 @@
-<ng-container class = "mainDiv" *ngFor="let chat of chats">
+<div  class = "mainDiv">
+<ng-container *ngFor="let chat of chats">
     <div *ngIf="chat.isType">
+            <div class="clear"></div>
         <div class = "sentDiv">
         <span>{{chat.message}}</span><br/>
         </div>
@@ -10,4 +12,9 @@
             <span>{{chat.message}}</span><br/>
         </div>
     </div>
-</ng-container> 
+</ng-container>
+</div> 
+<br/><br/>
+<div class="textBox">
+    <input type="text" name="message"  size="140">
+</div>

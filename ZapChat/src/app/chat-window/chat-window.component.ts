@@ -18,7 +18,22 @@ export class ChatWindowComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.addChat('Hi This is Sunil Yadav', 'received', false);
+   this.addChat('Hi This is Sunil Yadav', 'received', false);
+   this.addChat('Hi This is Kiran Panchal', 'sent', true);
+   this.addChat('Hi This is Rushabh', 'received', false);
+   this.addChat('Hi this is Patekar', 'sent', true);
+
+   this.addChat('Hi This is Sunil Yadav', 'received', false);
+   this.addChat('Hi This is Kiran Panchal', 'sent', true);
+   this.addChat('Hi This is Rushabh', 'received', false);
+   this.addChat('Hi this is Patekar', 'sent', true);
+
+   this.addChat('Hi This is Sunil Yadav', 'received', false);
+   this.addChat('Hi This is Kiran Panchal', 'sent', true);
+   this.addChat('Hi This is Rushabh', 'received', false);
+   this.addChat('Hi this is Patekar', 'sent', true);
+
+   this.addChat('Hi This is Sunil Yadav', 'received', false);
    this.addChat('Hi This is Kiran Panchal', 'sent', true);
    this.addChat('Hi This is Rushabh', 'received', false);
    this.addChat('Hi this is Patekar', 'sent', true);
