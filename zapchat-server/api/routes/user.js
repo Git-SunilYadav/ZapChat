@@ -19,21 +19,20 @@ router.post('/', (req, res, next) => {
 
     UserExist(ref, req, res, next,  function (data) {
         if(!data){
-            //console.log("if statement");
             let newRef = db.ref("chat/" + req.body.phoneNumber + "/");
             CreateUser(newRef, req, res, next,  function (data) {
                 res.status(200).json({
                     message: 'User created successfully',
-                    isValid: true
+                    isUserExist: false
                 }).end();
             });
         }
         else
         {
-                //console.log("else statement");
-                res.status(409).json({
-                    message: 'User already exist!'
-                }).end();
+            res.status(409).json({
+                message: 'User already exist!',
+                isUserExist: true
+            }).end();
         }
 
     });
@@ -45,7 +44,6 @@ router.post('/login/', (req, res, next) => {
     var ref = db.ref("chat/");
     AuthenticateUser(ref, req, res, next,  function (data) {
         if(data){
-            console.log("if statement");
             res.status(200).json({
                 phoneNumber: "",
                 isValid: true,
@@ -56,7 +54,6 @@ router.post('/login/', (req, res, next) => {
         else
         {
             if(!res.headersSent){
-                //console.log("else statement");
                 res.status(401).json({
                     message: 'Invalid login credentials'
                 }).end();
@@ -68,15 +65,9 @@ router.post('/login/', (req, res, next) => {
 
 // Function to validate user 
 function AuthenticateUser(ref, req, res, next,callback) {
-    //console.log("in AuthenticateUser funcftion ");
     ref.once("value", function (snap) {
         snap.forEach(function (data) {
-            //console.log("phoneNumber: " + req.body.phoneNumber);
-            //console.log("password: " + req.body.password);
-
             if (data.key == req.body.phoneNumber && data.child("password").val() == req.body.password) {
-                //console.log(data.key);
-                //console.log(data.child("password").val());
                callback(true);
             }
         });
@@ -86,14 +77,11 @@ function AuthenticateUser(ref, req, res, next,callback) {
 
 // Function to check for existing user 
 function UserExist(ref, req, res, next,callback) {
-    //console.log("in user exist function ");
     let isUserExist = false;
     ref.once("value", function (snap) {
        
         snap.forEach(function (number) {
-            //console.log("Entered phoneNumber: " + req.body.phoneNumber);
             if (number.key == req.body.phoneNumber) {
-                //console.log("PhoneNumber in Firebase: " + number.key);
                 isUserExist = true;
             }
         });
@@ -104,9 +92,8 @@ function UserExist(ref, req, res, next,callback) {
 
 // Function to create user 
 function CreateUser(ref, req, res, next,callback) {
-    //console.log("in create user function ");
    ref.set({
-        name: req.body.name,
+        name: req.body.firstName,
         password: req.body.password
     }).then( function(){
         callback(true);
