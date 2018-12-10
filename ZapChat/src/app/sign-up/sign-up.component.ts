@@ -37,7 +37,7 @@ constructor(private authenticate: AuthenticateUserService, private router: Route
     this.userDetails.email = this.email;
     this.userDetails.phoneNumber = this.phoneNumber;
     this.userDetails.password = this.password;
-debugger;
+    
     if(this.isValid){
     
         if(this.checkUserExist(this.phoneNumber, this.password, this.firstName)){

@@ -1,8 +1,12 @@
 <div id="contactPanel">
   <ul class="contactList">
       <li *ngFor="let contact of contactList">
-          <div class="contact"><img src="assets/images/profile-icon.png" height="30px" width="30px"> {{contact.name}}</div>
-       
+          <div class="contact" >
+             <img src="assets/images/profile-icon.png" height="30px" width="30px">
+                <span>{{contact.name}}</span> 
+                <br>
+                <span (click)="showMessages(contact.phoneNumber)">{{contact.phoneNumber}}</span>
+            </div>
       </li>
   </ul>
 </div>
