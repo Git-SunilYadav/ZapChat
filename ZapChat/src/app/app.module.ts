@@ -58,7 +58,7 @@ import { NotificationService } from '../app/notification.service';
         component: ContactListComponent
       },
       {
-        path: 'addcontacts',
+        path: 'addContacts',
         component: AddContactsComponent
       },
       {
@@ -66,17 +66,26 @@ import { NotificationService } from '../app/notification.service';
         component: NotificationComponent
       },
       {
-      path: '',
-      component: LoginComponent
-      },
-      {
+      
         path: 'chatPage/:number',
         component: ChatPageComponent
       },
        {
         path: 'chatWindow',
         component: ChatWindowComponent
-      }
+      },
+      {
+        path: 'terms',
+        component: TermsComponent
+      },
+      {
+        path: 'signUp',
+        component: SignUpComponent
+      },
+      {
+        path: '',
+        component: LoginComponent
+      },
   ])
   ],
   providers: [

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Chat } from './../chat-window/chat';
-import { ChatServices } from './chat.service';
+import {AngularFireDatabase } from 'angularfire2/database';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-chat-window',
@@ -9,55 +11,23 @@ import { ChatServices } from './chat.service';
 })
 export class ChatWindowComponent implements OnInit {
 
-  chats: Chat[] = [];
+  chats: any[];
   public chat: Chat;
-  message = '';
-  type = '';
-  isType = false;
+  message: String = '';
+  type: String = '';
 
-  constructor() { }
+  constructor(db: AngularFireDatabase, private router: Router, private route: ActivatedRoute) {
+    db.list('/chat/8237292660/contactList/8578693255/chats')
+    .valueChanges().subscribe(chat => {
+      this.chats = chat;
+    });
+  }
 
   ngOnInit() {
-   this.addChat('Hi This is Sunil Yadav', 'received', false);
-   this.addChat('Hi This is Kiran Panchal', 'sent', true);
-   this.addChat('Hi This is Rushabh', 'received', false);
-   this.addChat('Hi this is Patekar', 'sent', true);
-
-   this.addChat('Hi This is Sunil Yadav', 'received', false);
-   this.addChat('Hi This is Kiran Panchal', 'sent', true);
-   this.addChat('Hi This is Rushabh', 'received', false);
-   this.addChat('Hi this is Patekar', 'sent', true);
-
-   this.addChat('Hi This is Sunil Yadav', 'received', false);
-   this.addChat('Hi This is Kiran Panchal', 'sent', true);
-   this.addChat('Hi This is Rushabh', 'received', false);
-   this.addChat('Hi this is Patekar', 'sent', true);
-
-   this.addChat('Hi This is Sunil Yadav', 'received', false);
-   this.addChat('Hi This is Kiran Panchal', 'sent', true);
-   this.addChat('Hi This is Rushabh', 'received', false);
-   this.addChat('Hi this is Patekar', 'sent', true);
    }
 
   clearText() {
     this.message = '';
     this.type = '';
-    this.isType = false;
   }
-
-  checkType(ch): void {
-    if ( ch.type === 'sent') {
-      this.isType = true;
-    }
-  }
-
-  addChat(message, type, isType): void {
-    this.chat = new Chat();
-    this.chat.message = message;
-    this.chat.type = type;
-    this.chat.isType = isType;
-    this.chats.push(this.chat);
-    this.clearText();
-  }
-
 }

@@ -1,19 +1,20 @@
-<div  class = "mainDiv">
-<ng-container *ngFor="let chat of chats">
-    <div *ngIf="chat.isType">
-            <div class="clear"></div>
-        <div class = "sentDiv">
-        <span>{{chat.message}}</span><br/>
-        </div>
+<div class="mainDiv">
+  <ng-container *ngFor="let chat of chats">
+    <!--Using *ngIf to check the type of message(received or sent)-->
+    <div *ngIf="chat.type == 'sent'">
+      <div class="clear"></div>
+      <div class="sentDiv">
+        <span>{{chat.message}}</span><br />
+      </div>
     </div>
-    <div *ngIf="!chat.isType">
-        <div class="clear"></div>
-        <div class = "receivedDiv" >
-            <span>{{chat.message}}</span><br/>
-        </div>
+    <div *ngIf="chat.type == 'received'">
+      <div class="clear"></div>
+      <div class="receivedDiv">
+        <span>{{chat.message}}</span><br />
+      </div>
     </div>
-</ng-container>
-<div class="textBox">
-    <input type="text" name="message"  placeholder="Type your message..." size="140">
+  </ng-container>
+  <div class="textBox">
+    <input type="text" name="message" placeholder="Type your message..." size="140">
+  </div>
 </div>
-</div> 

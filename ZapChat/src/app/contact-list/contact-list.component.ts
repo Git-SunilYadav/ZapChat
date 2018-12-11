@@ -1,25 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import {AngularFireDatabase } from 'angularfire2/database'
+import { Component, OnInit, AfterContentInit } from '@angular/core';
+import {AngularFireDatabase } from 'angularfire2/database';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.scss']
 })
-export class ContactListComponent  {
+export class ContactListComponent implements OnInit {
 
   contactList: any[];
-  constructor(db: AngularFireDatabase) {
+  constructor(db: AngularFireDatabase, private router: Router, private route: ActivatedRoute) {
     db.list('/chat/8237292660/contactList/')
     .valueChanges().subscribe(contact => {
       this.contactList = contact;
-      console.log(this.contactList);
-
     });
    }
 
   ngOnInit() {
-  
   }
+// Show messages for the number
+  showMessages(number) {
+    alert('InShowMessage() ' + number);
+    // this.router.navigate(['chatPage/:8578693255']);
+  }
+
 
 }
