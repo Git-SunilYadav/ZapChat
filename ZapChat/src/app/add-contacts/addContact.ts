@@ -1,4 +1,6 @@
 export class AddContact {
+   // Class of New Contact to be added with Details
     phoneNumber: String;
-    name: String;
+    firstName: String;
+    newContact: String;
 }

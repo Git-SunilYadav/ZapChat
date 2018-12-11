@@ -147,3 +147,13 @@ hr {
     }
   }
 }
+.cancel{
+  background-color: $background_color_2;
+  float: center;
+  width: 250px;
+  text-decoration: none;
+  color: white;
+}
+a:visited{
+  text-decoration: none;
+}

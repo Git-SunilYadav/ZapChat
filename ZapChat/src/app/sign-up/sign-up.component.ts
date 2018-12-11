@@ -1,3 +1,5 @@
+import { LoginComponent } from './../login/login.component';
+import { ChatPageComponent } from './../chat-page/chat-page.component';
 import { UserDetails } from './UserDetails';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticateUserService } from '../authenticate-user.service';
@@ -48,7 +50,6 @@ export class SignUpComponent implements OnInit {
         );
     }
   }
-
   // Validation Function
   validate() {
     // Validation of all the fields of form using regex

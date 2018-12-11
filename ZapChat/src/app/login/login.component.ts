@@ -16,7 +16,7 @@ password: String = '';
 response: String = '';
 isValid: Boolean = true;
 
-constructor(private authenticate: AuthenticateUserService, private router: Router, private route: ActivatedRoute, ) {
+constructor(private authenticate: AuthenticateUserService, private router: Router, private route: ActivatedRoute ) {
    }
 
   ngOnInit() {

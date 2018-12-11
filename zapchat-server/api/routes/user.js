@@ -106,13 +106,16 @@ router.post('/sendMessage/', (req, res, next) => {
 
 //api to add contact in contactList
 router.post('/addContact/', (req, res, next) => {
-    var ref = db.ref("chat/" + req.body.phoneNumber + "/contactList/");
+    console.log("req.body.phoneNumber " + req.body.phoneNumber);
+    console.log("req.body.firstName " + req.body.firstName);
+    console.log("req.body.newContact " + req.body.newContact);
+    let ref = db.ref("chat/" + req.body.phoneNumber + "/contactList/");
     AddContact(ref, req, res, next,  function (data) {
         if(data){
             res.status(200).json({
                 phoneNumber: req.body.phoneNumber,
-                contactName: req.body.firstName,
-                contactNumber: req.body.newContact
+                firstName: req.body.firstName,
+                newContact: req.body.newContact
             }).end();
             
         }
@@ -157,9 +160,11 @@ function SendMessage(ref, senderNumber,receiverNumber,message , res, next, messa
 function AddContact(ref, req, res, next,callback) {
 
     let newRef = db.ref("chat/" + req.body.phoneNumber + "/contactList/" + req.body.newContact);
+    console.log("chat/" + req.body.phoneNumber + "/contactList/" + req.body.newContact);
     newRef.set({
          name: req.body.firstName,
-        phoneNumber: req.body.newContact
+        phoneNumber: req.body.newContact,
+        unreadMessages:0
     })
     callback(true);
 };
