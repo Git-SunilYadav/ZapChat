@@ -2,10 +2,17 @@
   <ul class="contactList">
       <li *ngFor="let contact of contactList">
           <div class="contact" >
-             <img src="assets/images/profile-icon.png" height="30px" width="30px">
-                <span>{{contact.name}}</span> 
+             <span class="profileImage"><img src="assets/images/Profile-wolf.png" height="30px" width="30px"></span>
+                <span class="contactName">{{contact.name}}</span>
+                <ng-container *ngIf="contact.unreadMessages > '0'; then thenTemplate; else elseTemplate"></ng-container>
+                <ng-template #thenTemplate>
+                  <span class="unreadMessage">{{contact.unreadMessages}}</span>
+                </ng-template>
+                <ng-template #elseTemplate>
+                  <span class="unreadMessageZero"></span>
+                </ng-template>
                 <br>
-                <span (click)="showMessages(contact.phoneNumber)">{{contact.phoneNumber}}</span>
+                <span class="contactPhoneNumber" (click)="showMessages(contact.phoneNumber)">{{contact.phoneNumber}}</span>
             </div>
       </li>
   </ul>

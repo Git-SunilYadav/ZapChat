@@ -1,4 +1,4 @@
-export class AddContact{
-    phoneNumber : String;
-    name : String;
+export class AddContact {
+    phoneNumber: String;
+    name: String;
 }

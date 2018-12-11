@@ -1,18 +1,22 @@
 <div class="navigationBar">
   <img src="/assets/images/Profile-Picture.png" height="35px" width="35px" class="Profile">
   <a class="username">Username</a>
-  <a class="contacts active" (click)="setContactList(true)">Contacts</a>
-  <a class="addContacts" (click)="setAddContacts(true)"><img src="/assets/images/add-icon.png" height="35px" width="35px" class="addIcon"></a> <!--[routerLink]="[ '/addContacts']"-->
+  <a class="contacts active" (click)="setContactList(true)"><img src="/assets/images/contact-book.png" height="35px"
+      width="35px" class="contactBook"></a>
+  <a class="addContacts" (click)="setAddContacts(true)"><img src="/assets/images/add-icon.png" height="35px" width="35px"
+      class="addIcon"></a>
   <a href="#Settings" class="settings"><img src="/assets/images/settings.png" height="35px" width="35px" class="settingsIcon"></a>
 </div>
+<!--Adding the different components on the main chat page-->
 <div class="parentDiv">
   <div [hidden]=addContactWasClicked class="contactListDiv">
+    <!--Checks if Add Contacts was clicked, when clicked, it will replace the contact list component with add contact-->
     <app-contact-list *ngIf="!addContactWasClicked"></app-contact-list>
   </div>
   <div [hidden]=!addContactWasClicked class="addContactDiv">
     <app-add-contacts *ngIf="addContactWasClicked"></app-add-contacts>
   </div>
- <div class="chatWindowDiv">
+  <div class="chatWindowDiv">
     <app-chat-window></app-chat-window>
   </div>
 </div>

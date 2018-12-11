@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import {AngularFireDatabase } from 'angularfire2/database';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -7,24 +7,23 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.scss']
 })
-export class ContactListComponent  {
+export class ContactListComponent implements OnInit {
 
   contactList: any[];
-  constructor(db: AngularFireDatabase,private router: Router, private route: ActivatedRoute) {
+  constructor(db: AngularFireDatabase, private router: Router, private route: ActivatedRoute) {
     db.list('/chat/8237292660/contactList/')
     .valueChanges().subscribe(contact => {
       this.contactList = contact;
-
     });
    }
 
   ngOnInit() {
-  
+  }
+// Show messages for the number
+  showMessages(number) {
+    alert('InShowMessage() ' + number);
+    // this.router.navigate(['chatPage/:8578693255']);
   }
 
-  showMessages(number){
-    alert("InShowMessgae() "+number);
-    //this.router.navigate(['chatPage/:8578693255']);
-  }
 
 }

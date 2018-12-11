@@ -22,6 +22,7 @@ export class AddContactsComponent implements OnInit {
     this.addContact.name = this.name;
   }
   validate() {
+    // validation function for adding contact
     const phoneNumber = document.forms['addContact']['phoneNumber'].value;
     if (phoneNumber === '') {
       alert('please enter Phone Number');

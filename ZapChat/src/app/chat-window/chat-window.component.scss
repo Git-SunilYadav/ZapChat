@@ -4,73 +4,80 @@ $background_color_1: #006699;
 $background_color_2: #efefef;
 $background_color_3: #D6FED5;
 $background_color_4: #FFF9AE;
+$background_color_5: #606060;
 $font_family_1: sans-serif;
 $padding_value_1: 10px;
 $padding_value_2: 5px;
 $margin_value: 8px;
+$margin_value_1: 1px;
+$margin_value_2: 3px;
+$value_1: 15px;
 $font_size_value: 17px;
 
+
 .mainDiv {
- // background-color: #F5F9FD;
   height: 530px;
-	color: $color_1;
-  margin-top: 1px;
-  margin-bottom: 1px;
-	padding: $padding_value_2;
-	overflow: auto;
-	width: 74%;
+  color: $color_1;
+  margin-top: $margin_value_1;
+  margin-bottom: $margin_value_1;
+  padding: $padding_value_2;
+  overflow: auto;
+  width: 74%;
   float: right;
   background-image: url('/assets/images/tile.png');
   background-repeat: no-repeat;
   background-size: 930px 430px;
 }
+
 .receivedDiv {
-	background-color: $color_1;
-	color: $color_2;
-	float: left;
-	width: 60%;
-	text-align: left;
-	margin-bottom: $margin_value;
-	border-radius: $padding_value_2;
-	padding-left: $padding_value_1;
-	padding-right: $padding_value_1;
-	padding-top: $padding_value_2;
-	padding-bottom: $padding_value_2;
+  background-color: $color_1;
+  color: $color_2;
+  float: left;
+  text-align: left;
+  margin-left: $margin_value_2;
+  margin-bottom: $margin_value;
+  border-radius: $padding_value_2;
+  padding-left: $padding_value_1;
+  padding-right: $padding_value_1;
+  padding-top: $padding_value_2;
+  padding-bottom: $padding_value_2;
 }
+
 .sentDiv {
-	background-color: $background_color_4;
-	color: $color_2;
-	width: 60%;
-	float: right;
-	text-align: right;
-	margin-bottom: $margin_value;
-	border-radius: $padding_value_2;
-	padding-left: $padding_value_1;
-	padding-right: $padding_value_1;
-	padding-top: $padding_value_2;
-	padding-bottom: $padding_value_2;
+  background-color: $background_color_4;
+  color: $color_2;
+  float: right;
+  text-align: right;
+  margin-right: $margin_value_1;
+  margin-bottom: $margin_value;
+  border-radius: $padding_value_2;
+  padding-left: $padding_value_1;
+  padding-right: $padding_value_1;
+  padding-top: $padding_value_2;
+  padding-bottom: $padding_value_2;
 }
+
 .clear {
-	clear: both;
+  clear: both;
 }
 
 * {
-	font-size: $font_size_value;
-	font-family: $font_family_1;
+  font-size: $font_size_value;
+  font-family: $font_family_1;
 }
 
-.textBox{
-	position: fixed;;
-	bottom: 15px;
+.textBox {
+  position: fixed;
+  bottom: $value_1;
 }
 
-input[type=text]{
-	width: 95%;
-	padding: 12px 20px;
-  	margin: 8px 0;
-  	display: inline-block;
-  	border: 1px solid #606060;
-  	border-radius: 4px;
-	box-sizing: border-box;
-	margin-top: 20px;
+input[type=text] {
+  width: 99%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid $background_color_5;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 20px;
 }

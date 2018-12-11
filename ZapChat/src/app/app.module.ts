@@ -36,7 +36,7 @@ import { AddContactsComponent } from './add-contacts/add-contacts.component';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    RouterModule.forRoot([
+    RouterModule.forRoot([                                // Gave path names to various components in routing
       {
         path: 'contactList',
         component: ContactListComponent

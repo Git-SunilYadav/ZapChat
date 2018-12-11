@@ -13,24 +13,21 @@ export class ChatWindowComponent implements OnInit {
 
   chats: any[];
   public chat: Chat;
-  message:string = '';
-  type:string = '';
+  message: String = '';
+  type: String = '';
 
-  constructor(db: AngularFireDatabase,private router: Router, private route: ActivatedRoute) { 
+  constructor(db: AngularFireDatabase, private router: Router, private route: ActivatedRoute) {
     db.list('/chat/8237292660/contactList/8578693255/chats')
     .valueChanges().subscribe(chat => {
       this.chats = chat;
-
     });
   }
 
   ngOnInit() {
-
    }
 
   clearText() {
     this.message = '';
     this.type = '';
   }
-
 }

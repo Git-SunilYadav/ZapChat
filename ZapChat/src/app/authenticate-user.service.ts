@@ -25,7 +25,7 @@ public userDetails: UserDetails;
     .pipe();
    }
 
-   userExist (phoneNumber,password,firstName): Observable<UserDetails> {
+   userExist (phoneNumber, password, firstName): Observable<UserDetails> {
     this.userDetails = new UserDetails();
     this.userDetails.phoneNumber = phoneNumber;
     this.userDetails.password = password;
