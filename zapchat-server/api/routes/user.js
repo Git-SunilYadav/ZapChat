@@ -104,6 +104,29 @@ router.post('/sendMessage/', (req, res, next) => {
     });
 });
 
+//api to add contact in contactList
+router.post('/addContact/', (req, res, next) => {
+    var ref = db.ref("chat/" + req.body.phoneNumber + "/contactList/");
+    AddContact(ref, req, res, next,  function (data) {
+        if(data){
+            res.status(200).json({
+                phoneNumber: req.body.phoneNumber,
+                contactName: req.body.firstName,
+                contactNumber: req.body.newContact
+            }).end();
+            
+        }
+        else
+        {
+            res.status(500).json({
+            message: 'Contact not added'
+                }).end();
+        }
+
+    });
+});
+
+
 // Function to send message 
 function SendMessage(ref, senderNumber,receiverNumber,message , res, next, messageType,callback) {
     ref.once("value", function (snap) {
@@ -128,6 +151,19 @@ function SendMessage(ref, senderNumber,receiverNumber,message , res, next, messa
     });
     callback(true);
 };
+
+
+// Function to add Contact
+function AddContact(ref, req, res, next,callback) {
+
+    let newRef = db.ref("chat/" + req.body.phoneNumber + "/contactList/" + req.body.newContact);
+    newRef.set({
+         name: req.body.firstName,
+        phoneNumber: req.body.newContact
+    })
+    callback(true);
+};
+
 
 
 // Function to validate user 
