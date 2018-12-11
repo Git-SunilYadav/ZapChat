@@ -1,7 +1,7 @@
 ## Comments
 
 ### UI
-1. Needs code documentation.
+1. Need code documentation.
 
 ### Server
-1. Needs code documentation.
+1. Need code documentation.
