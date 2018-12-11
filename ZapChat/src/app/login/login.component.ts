@@ -37,7 +37,6 @@ constructor(private authenticate: AuthenticateUserService, private router: Route
         setTimeout(()=>{
           if(this.loginDetails.isValid)
         {
-          alert("login successful");
           //return this.router.navigate([/<a [routerLink]="[ '/chatPage', ChatPageComponent ]">chat</a>]);
           ///<a [routerLink]="[ '/path']">name</a>
           this.router.navigate(['chatPage',this.phoneNumber]);

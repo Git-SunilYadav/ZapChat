@@ -22,7 +22,12 @@ router.post('/', (req, res, next) => {
             let newRef = db.ref("chat/" + req.body.phoneNumber + "/");
             CreateUser(newRef, req, res, next,  function (data) {
                 res.status(200).json({
-                    message: 'User created successfully',
+                    firstName:"",
+                    lastName: "",
+                    email:"",
+                    phoneNumber:req.body.phoneNumber,
+                    password: "",
+                    passwordRepeat:"",                    
                     isUserExist: false
                 }).end();
             });
@@ -30,8 +35,13 @@ router.post('/', (req, res, next) => {
         else
         {
             res.status(409).json({
-                message: 'User already exist!',
-                isUserExist: true
+                    firstName:"",
+                    lastName: "",
+                    email:"",
+                    phoneNumber:req.body.phoneNumber,
+                    password: "",
+                    passwordRepeat:"",                    
+                    isUserExist: true
             }).end();
         }
 

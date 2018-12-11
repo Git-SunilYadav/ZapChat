@@ -2,6 +2,7 @@ import { UserDetails } from './UserDetails';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticateUserService } from '../authenticate-user.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { callbackify } from 'util';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,60 +10,50 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
- // public ud: UserDetails[];
-  public userDetails: UserDetails;
-  firstName: string = '';
-  lastName: string = '';
-  email: string = '';
-  phoneNumber: string = '';
-  password: string = '';
-  passwordRepeat: string = '';
-  isUserExist: boolean = false;
-  isValid: boolean = true;
+    // public ud: UserDetails[];
+    public userDetails: UserDetails;
+    firstName: string = '';
+    lastName: string = '';
+    email: string = '';
+    phoneNumber: string = '';
+    password: string = '';
+    passwordRepeat: string = '';
+    isUserExist: boolean = false;
+    isValid: boolean = true;
 
-constructor(private authenticate: AuthenticateUserService, private router: Router, private route: ActivatedRoute,) {
+    constructor(private authenticate: AuthenticateUserService, private router: Router, private route: ActivatedRoute,) {
 
-}
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
   onSignUp(){
     this.validate();
-    debugger;
     this.userDetails = new UserDetails();
-    this.userDetails.isUserExist = false;
+    this.userDetails.isUserExist = true;
     this.userDetails.firstName = this.firstName;
     this.userDetails.lastName = this.lastName;
     this.userDetails.email = this.email;
     this.userDetails.phoneNumber = this.phoneNumber;
     this.userDetails.password = this.password;
-debugger;
+
     if(this.isValid){
     
-        if(this.checkUserExist(this.phoneNumber, this.password, this.firstName)){
-            //console.log("Inside if checkUserExist  "+this.userDetails.isUserExist);
-            alert("PhoneNumber "+this.userDetails.phoneNumber+ "  Password  "+this.userDetails.password+" isUserExist "+this.userDetails.isUserExist);
-            setTimeout(()=>{
-            if(this.userDetails.isUserExist)
-            {
-                alert("User already exists!");
-                //this.router.navigate(['chatWindow',this.phoneNumber]);
-            }
-            else{
-             alert("New User created successfully");
-             this.router.navigate(['chatWindow',this.phoneNumber]);
-          }
-       }, 500);
-      }
-      else{
-          alert("Check user function failed");
-      }
-      }
-
-
-
-  }
+        this.checkUserExist(this.phoneNumber, this.password, this.firstName, this.router , 
+            function(data,number, router){
+            
+                if(data){
+                    alert("User already exists");
+                }
+                else{
+                    router.navigate(['chatPage',number]);
+                }
+          
+           
+      });
+    }
+}
 
   // Validation Function
   validate() {
@@ -119,10 +110,14 @@ debugger;
   }
 
 
-  checkUserExist(phoneNumber,password,firstName) {
-      debugger;
-    this.authenticate.userExist(phoneNumber,password,firstName).subscribe(userDetails => this.userDetails = userDetails);
-        return true;
-  }
+  checkUserExist(phoneNumber,password,firstName,router ,callback) {
+      
+    this.authenticate.userExist(phoneNumber,password,firstName)
+    .subscribe(userDetails => this.userDetails = userDetails,
+        );
 
+        setTimeout(()=>{
+            callback( this.userDetails.isUserExist, this.userDetails.phoneNumber,router);
+        }, 500);
+  }
 }
