@@ -1,12 +1,16 @@
 <div class="navigationBar">
-  <img src="/assets/images/Profile-Picture.png" height="40px" width="40px" class="Profile">
-  <a href="#Username">Username</a>
-  <a class="active" href="#Contacts">Contacts</a>
-  <a href="#Settings">Settings</a>
+  <img src="/assets/images/Profile-Picture.png" height="35px" width="35px" class="Profile">
+  <a class="username">Username</a>
+  <a class="contacts active" (click)="setContactList(true)">Contacts</a>
+  <a class="addContacts" (click)="setAddContacts(true)"><img src="/assets/images/add-icon.png" height="35px" width="35px" class="addIcon"></a> <!--[routerLink]="[ '/addContacts']"-->
+  <a href="#Settings" class="settings"><img src="/assets/images/settings.png" height="35px" width="35px" class="settingsIcon"></a>
 </div>
 <div class="parentDiv">
-  <div class="contactListDiv">
-    <app-contact-list></app-contact-list>
+  <div [hidden]=addContactWasClicked class="contactListDiv">
+    <app-contact-list *ngIf="!addContactWasClicked"></app-contact-list>
+  </div>
+  <div [hidden]=!addContactWasClicked class="addContactDiv">
+    <app-add-contacts *ngIf="addContactWasClicked"></app-add-contacts>
   </div>
   <div class="chatWindowDiv">
     <app-chat-window></app-chat-window>
