@@ -5,4 +5,5 @@ export class UserDetails {
   phoneNumber: string;
   password: string;
   passwordRepeat: string;
+  isUserExist: boolean;
 }
