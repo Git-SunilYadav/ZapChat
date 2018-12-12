@@ -18,6 +18,7 @@ import {AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import { AddContactsComponent } from './add-contacts/add-contacts.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AddContactsComponent } from './add-contacts/add-contacts.component';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    FormsModule,
     RouterModule.forRoot([                                // Gave path names to various components in routing
       {
         path: 'contactList',

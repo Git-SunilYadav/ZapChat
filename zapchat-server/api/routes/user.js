@@ -104,6 +104,56 @@ router.post('/sendMessage/', (req, res, next) => {
     });
 });
 
+// Function to send message 
+function SendMessage(ref, senderNumber,receiverNumber,message , res, next, messageType,callback) {
+    ref.once("value", function (snap) {
+        snap.forEach(function (data) {
+            if (data.key == senderNumber) {
+                let newRef = db.ref("chat/" + senderNumber + "/contactList/");
+                newRef.once("value", function (snap) {
+                    snap.forEach(function (data){
+                        if (data.key == receiverNumber){
+                            if(messageType == 'received'){
+
+                                let contactRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/");
+                                contactRef.once("value", function (snap){
+                                    snap.forEach(function (data){
+                                        console.log(" data.key : " + data.key);
+                                        if(data.key == "unreadMessages"){
+
+                                            console.log(" unreadMessages key: " + data.key);
+                                            console.log(" unreadMessages value :" + data.val());
+                                            let unreadMessages =  parseInt(data.val());
+                                            unreadMessages = unreadMessages + 1;
+
+                                            let contactRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/");
+                                            
+                                            contactRef.update({
+                                                unreadMessages
+                                           })
+                                        }
+                                    });                                    
+                                })
+                            }
+                            
+                            let msgRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/chats/");
+                            msgRef.push().set({
+                                message: message,
+                                type: messageType
+                        
+                            });
+                        }
+                    });
+                });
+                //callback(true);
+            }
+        });
+        //callback(false);
+    });
+    callback(true);
+};
+
+
 //api to add contact in contactList
 router.post('/addContact/', (req, res, next) => {
     console.log("req.body.phoneNumber " + req.body.phoneNumber);
@@ -151,49 +201,6 @@ router.put('/unreadMessages/', (req, res, next) => {
 
 
 
-// Function to send message 
-function SendMessage(ref, senderNumber,receiverNumber,message , res, next, messageType,callback) {
-    ref.once("value", function (snap) {
-        snap.forEach(function (data) {
-            if (data.key == senderNumber) {
-                let newRef = db.ref("chat/" + senderNumber + "/contactList/");
-                newRef.once("value", function (snap) {
-                    snap.forEach(function (data){
-                        if (data.key == receiverNumber){
-                            if(messageType == 'received'){
-
-                                let contactRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/");
-                                contactRef.once("value", function (snap){
-                                    if(snap.hasChild("unreadMessages")){
-                                        let counter = snap.unreadMessages;
-                                        counter = counter +1;
-                                        let contactRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/unreadMessages");
-                                        console.log("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/unreadMessages");
-                                        //console.log(unreadMessagesCounter);
-                                        contactRef.set({
-                                            counter
-                                       })
-                                        
-                                    }
-                                })
-                            }
-                            
-                            let msgRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/chats/");
-                            msgRef.push().set({
-                                message: message,
-                                type: messageType
-                        
-                            });
-                        }
-                    });
-                });
-                //callback(true);
-            }
-        });
-        //callback(false);
-    });
-    callback(true);
-};
 
 
 // Function to add Contact

@@ -22,9 +22,6 @@ export class AddContactsComponent implements OnInit {
   onClickAdd() {
     this.addContact = new AddContact();
     this.validate();
-    // this.addContact.phoneNumber = this.phoneNumber;
-    // this.addContact.firstName = this.name;
-    // this.addContact.newContact = this.contactNumber;
 
       if (this.validate() && this.checkAddContact(this.addContact.newContact, this.addContact.firstName, this.addContact.phoneNumber)) {
         setTimeout(() => {
