@@ -18,12 +18,10 @@ import {AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import { AddContactsComponent } from './add-contacts/add-contacts.component';
-import { NotificationComponent } from './notification/notification.component';
 import { FormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
 import {AngularFireMessagingModule } from '@angular/fire/messaging';
-import { NotificationService } from '../app/notification.service';
 
 @NgModule({
   declarations: [
@@ -34,8 +32,7 @@ import { NotificationService } from '../app/notification.service';
     ContactListComponent,
     AddContactsComponent,
     ChatPageComponent,
-    ChatWindowComponent,
-    NotificationComponent
+    ChatWindowComponent
   ],
   imports: [
     BrowserModule,
@@ -62,10 +59,6 @@ import { NotificationService } from '../app/notification.service';
       {
         path: 'addContacts',
         component: AddContactsComponent
-      },
-      {
-        path: 'notification',
-        component: NotificationComponent
       },
       {
         path: 'chatPage/:number',
