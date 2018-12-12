@@ -31,6 +31,14 @@ p{
   display: inline-block;
   margin-left: 10px;
 }
+a{
+  color:#66b3ff;
+  margin-left: 15px;
+
+&:visited{
+  color: #ffd633;
+}
+}
 .blackOverlay{
   position: absolute;
   top: 0;
@@ -206,7 +214,7 @@ hr {
 .toolTip {
   position: relative;
   display: inline-block;
-
+  margin-top: 18px;
   .toolTipText {
     visibility: hidden;
     width: 120px;
