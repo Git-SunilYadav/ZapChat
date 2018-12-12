@@ -32,22 +32,23 @@ $font_size_value: 17px;
   padding: $padding_value_2;
   //overflow: scroll;
   //overflow:auto;
-  width: 74%;
+  width: 890px;
   float: right;
   background-image: url('/assets/images/tile2.png');
   background-repeat: no-repeat;
-  background-size: 935px 440px;
+  background-size: 896px 425px;
 }
 .chatWindow{
   overflow: auto;
- height: 430px;
+ height: 420px;
+ width: 890px;
  //position: absolute;
- bottom: 20;
+ //bottom: 20;
 }
 #wrapper{
   position: relative;
     height: 425px;
-    width: 920px;
+    width: 895px;
     overflow: hidden;
 }
 .receivedDiv {
@@ -72,11 +73,11 @@ $font_size_value: 17px;
   color: $color_2;
   float: right;
   text-align: right;
-  margin-right: $margin_value_1;
+  margin-right: 5px;
   margin-bottom: $margin_value;
   border-radius: $padding_value_2;
   padding-left: $padding_value_1;
-  padding-right: $value_1;
+  padding-right: 5px;
   padding-top: $padding_value_2;
   padding-bottom: $padding_value_2;
   -moz-box-shadow: 3px 4px 3px #ccc;
@@ -100,7 +101,7 @@ $font_size_value: 17px;
   z-index: 1;
   opacity: 1;
   overflow: hidden;
-  width: 71.8%;
+  width: 68%;
   padding: 5px;
   padding-left: 15px;
   background-color: $background_color_6;
@@ -119,8 +120,8 @@ $font_size_value: 17px;
   margin-bottom: 0px;
 }
 .sendIcon{
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
 }
 
 input[type=text] {

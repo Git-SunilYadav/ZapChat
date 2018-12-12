@@ -70,9 +70,7 @@ validate() {
     this.authenticate.loginAuthenticate(loginId, password).subscribe(loginDetails => this.loginDetails = loginDetails);
     return true;
   }
-  passwordControl(){
+  passwordControl() {
     this.active = !this.active
   }
-  
   }
-  

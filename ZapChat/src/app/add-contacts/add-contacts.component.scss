@@ -2,15 +2,32 @@ $color_1: black;
 $background_color_1: #ddd;
 $background_color_2: #4CAF50;
 $background_color_3: #fefefe;
-.createContactPanel{
-/*  background-image: url('/assets/images/chat-background.png');
+
+.createContactPanel {
+  background-image: url('/assets/images/z.jpg');
   background-repeat: no-repeat;
-  height: 525px;*/
-  // width: 30%;
   margin-left: 0px;
   margin-right: 5px;
   float: left;
   margin-top: 1px;
+  height: 545px;
+  background-size: contain;
+  margin-top: -8px;
+  margin-bottom: -4px;
+  margin-right: -7px;
+  margin-left: -8px;
+}
+.blackOverlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100%;
+  background-color: #F7F7F7;
+  opacity: .17;
+  filter: Alpha(Opacity=30);
+  z-index: 11;
+  background: url("//img.carwale.com/cw-common/slide/overlay.png") repeat scroll 0 0 transparent;
 }
 input[type=text] {
 	width: 150px;
