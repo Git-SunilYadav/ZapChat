@@ -5,31 +5,37 @@
       <p>Please fill in this form to create an account.</p>
       <hr>
       <!--Form for Sign Up page-->
-      <input type="text" placeholder="First Name" name="firstName" required maxlength="30">
+      <div class="inputGroup">
+      <input type="text" name="firstName" required maxlength="30"><label>First Name</label></div>
       <div class="toolTip"><img src="assets/images/i-button.jpg" height="12px" width="12px">&nbsp;
         <span class="toolTipText">First Name length should be between 3 and 30 characters</span>
-
+  
       </div>
-      <input type="text" placeholder="Last Name" name="lastName" required maxlength="30">
+      <div class="inputGroup">
+      <input type="text"  name="lastName" required maxlength="30" class="rightStuff"><label>Last Name</label></div>
       <div class="toolTip"><img src="assets/images/i-button.jpg" height="12px" width="12px">
         <span class="toolTipText">Last Name length should be between 3 and 30 characters</span>
       </div>
       <br>
-      <input type="text" placeholder="Phone Number" name="phoneNumber" required maxlength="12">
+      <div class="inputGroup">
+      <input type="text" name="phoneNumber" required maxlength="12" ><label>Phone Number</label></div>
       <div class="toolTip"><img src="assets/images/i-button.jpg" height="12px" width="12px">&nbsp;
         <span class="toolTipText">Phone Number length should not be more than 10 numbers</span>
       </div>
-      <input type="text" placeholder="Email" name="email" required maxlength="30">
+      <div class="inputGroup">
+      <input type="text" name="email" required maxlength="30" class="rightStuff"><label>Email</label></div>
       <div class="toolTip"><img src="assets/images/i-button.jpg" height="12px" width="12px">
         <span class="toolTipText">Email length should not be more than 30 characters</span>
       </div>
       <br>
-      <input type="password" placeholder="Password" name="password" required>
+      <div class="inputGroup">
+      <input type="password" name="password" required><label>Password</label></div>
       <div class="toolTip"><img src="assets/images/i-button.jpg" height="12px" width="12px">&nbsp;
         <span class="toolTipText">The Password must contain at least 1 lowercase, 1 uppercase, 1 numeric and 1 special
           character and Password length should be at least 8 characters</span>
       </div>
-      <input type="password" placeholder="Repeat Password" name="passwordRepeat" required>
+      <div class="inputGroup">
+      <input type="password" name="passwordRepeat" required class="rightStuff"><label>Repeat Password</label></div>
       <div class="toolTip"><img src="assets/images/i-button.jpg" height="12px" width="12px">
         <span class="toolTipText">This field should match with the Password Field</span>
       </div>
