@@ -136,10 +136,29 @@ function SendMessage(ref, senderNumber,receiverNumber,message , res, next, messa
                 newRef.once("value", function (snap) {
                     snap.forEach(function (data){
                         if (data.key == receiverNumber){
+                            if(messageType == 'received'){
+
+                                let contactRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/");
+                                contactRef.once("value", function (snap){
+                                    if(snap.hasChild("unreadMessages")){
+                                        let counter = snap.unreadMessages;
+                                        counter = counter +1;
+                                        let contactRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/unreadMessages");
+                                        console.log("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/unreadMessages");
+                                        //console.log(unreadMessagesCounter);
+                                        contactRef.set({
+                                            counter
+                                       })
+                                        
+                                    }
+                                })
+                            }
+                            
                             let msgRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/chats/");
                             msgRef.push().set({
                                 message: message,
                                 type: messageType
+                        
                             });
                         }
                     });
