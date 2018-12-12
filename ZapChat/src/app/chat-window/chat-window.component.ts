@@ -4,8 +4,6 @@ import {AngularFireDatabase } from 'angularfire2/database';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AuthenticateUserService } from '../services/authenticate-user.service';
-import { text } from '@angular/core/src/render3';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-chat-window',
@@ -26,13 +24,13 @@ export class ChatWindowComponent implements OnInit {
   number:string;
   txtMessage:string;
 
-  // tslint:disable-next-line:max-line-length
   constructor(private db: AngularFireDatabase, private zone: NgZone, private router: Router, private route: ActivatedRoute, private authenticate: AuthenticateUserService) {
   }
 
   ngOnInit() {
    }
 
+   //function to handle changes in input parameters
    ngOnChanges(changes: SimpleChanges) {
     this.db.list('/chat/' + this.mobileNo + '/contactList/' + this.messageNumber + '/chats')
     .valueChanges().subscribe(chat => {
@@ -42,14 +40,9 @@ export class ChatWindowComponent implements OnInit {
     this.resetUnreadCount(this.mobileNo, this.messageNumber);
   }
 
-  clearText() {
-    this.message = '';
-    this.type = '';
-  }
-
+  //function to send message 
   sendMessage() {
     this.message =this.txtMessage;
-    debugger;
     this.type = 'sent';
     if (this.sendingMessage(this.message, this.type, this.mobileNo, this.messageNumber)) {
       this.txtMessage = "";
@@ -59,6 +52,7 @@ export class ChatWindowComponent implements OnInit {
 
   }
 
+  //function to bind message data from api
   sendingMessage(message, type, senderNumber, receiverNumber) {
     this.authenticate.messageSent(message, type, senderNumber, receiverNumber).subscribe(chat => this.chat = chat);
     return true;
@@ -68,7 +62,7 @@ export class ChatWindowComponent implements OnInit {
 
   }
 
-  // reset unread message count to 0
+  //function to reset unread message count to 0
   resetUnreadCount(mobNumber,contactNumber){
     if(mobNumber != ""  && contactNumber.toString() != ""){
       this.authenticate.resetUnreadCount(mobNumber,contactNumber).subscribe(chat => this.chat = chat);

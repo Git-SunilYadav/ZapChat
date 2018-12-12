@@ -18,6 +18,8 @@ public chat: Chat;
   constructor(private http: HttpClient) {
 
    }
+
+   //function to call /login api
    loginAuthenticate (loginId, password): Observable<LoginDetails> {
     this.loginDetails = new LoginDetails();
     this.loginDetails.phoneNumber = loginId;
@@ -27,6 +29,7 @@ public chat: Chat;
     .pipe();
    }
 
+   //function to call userExist api
    userExist (phoneNumber, password, firstName): Observable<UserDetails> {
     this.userDetails = new UserDetails();
     this.userDetails.phoneNumber = phoneNumber;
@@ -37,6 +40,7 @@ public chat: Chat;
     .pipe();
    }
 
+   //function to call sencMessage api
    messageSent (message, type, senderNumber, receiverNumber): Observable<Chat> {
     this.chat = new Chat();
     this.chat.message = message;
@@ -47,8 +51,8 @@ public chat: Chat;
     .pipe();
    }
 
+   //function to call reset unread counter api
    resetUnreadCount (mobNumber, contactNumber): Observable<Chat> {
-     debugger;
     this.chat = new Chat();
     this.chat.message = "set unread to 0";
     this.chat.senderNumber = mobNumber;

@@ -22,14 +22,14 @@ export class ContactListComponent implements OnInit{
    }
 
   ngOnInit() {
-    console.log(this.mobileNo);
-
+    
     this.db.list('/chat/'+this.mobileNo+'/contactList/')
     .valueChanges().subscribe(contact => {
       this.contactList = contact;
 
     });
   }
+  
 // Show messages for the number
   showMessages(number,name) {
     this.childEvent.emit(number);

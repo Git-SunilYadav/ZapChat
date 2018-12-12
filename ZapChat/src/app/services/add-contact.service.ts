@@ -12,6 +12,7 @@ export class AddContactService {
 public addContact: AddContact;
   constructor(private http: HttpClient) { }
 
+  //function to call /addContact api
   addContactAuthenticate (contactNumber, name, phoneNumber): Observable<AddContact> {
     this.addContact = new AddContact();
     this.addContact.phoneNumber = phoneNumber;
