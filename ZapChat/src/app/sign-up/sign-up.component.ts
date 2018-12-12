@@ -1,16 +1,16 @@
+import { LoginComponent } from './../login/login.component';
+import { ChatPageComponent } from './../chat-page/chat-page.component';
 import { UserDetails } from './UserDetails';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticateUserService } from '../authenticate-user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { callbackify } from 'util';
-
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-    // public ud: UserDetails[];
     public userDetails: UserDetails;
     firstName: string = '';
     lastName: string = '';
@@ -22,13 +22,12 @@ export class SignUpComponent implements OnInit {
     isValid: boolean = true;
 
     constructor(private authenticate: AuthenticateUserService, private router: Router, private route: ActivatedRoute,) {
-
     }
 
     ngOnInit() {
     }
 
-  onSignUp(){
+  onSignUp() {
     this.validate();
     this.userDetails = new UserDetails();
     this.userDetails.isUserExist = true;
@@ -38,33 +37,29 @@ export class SignUpComponent implements OnInit {
     this.userDetails.phoneNumber = this.phoneNumber;
     this.userDetails.password = this.password;
 
-    if(this.isValid){
-    
-        this.checkUserExist(this.phoneNumber, this.password, this.firstName, this.router , 
-            function(data,number, router){
-            
-                if(data){
-                    alert("User already exists");
+    if (this.isValid) {
+      // Checking if the user already exists or not
+        this.checkUserExist(this.phoneNumber, this.password, this.firstName, this.router ,
+            function(data, number, router) {
+                if (data) {
+                    alert('User already exists');
+                } else {
+                    router.navigate(['chatPage', number]);
                 }
-                else{
-                    router.navigate(['chatPage',number]);
-                }
-          
-           
-      });
+            }
+        );
     }
-}
-
+  }
   // Validation Function
   validate() {
-      
+    // Validation of all the fields of form using regex
     const firstName = document.forms['sign-up-form']['firstName'].value;
     const firstNameRegex = /^[a-zA-Z0-9]{3,30}$/;
     const firstNameResult = firstNameRegex.test(firstName);
     this.firstName = firstName;
     if (!firstNameResult) {
         alert('The First Name should be an Alpha-Numeric Character and the length of the field should be between 3 and 30 characters');
-        this.isValid=false;
+        this.isValid = false;
     }
     const lastName = document.forms['sign-up-form']['lastName'].value;
     const lastNameRegex = /^[a-zA-Z0-9]{3,30}$/;
@@ -72,15 +67,15 @@ export class SignUpComponent implements OnInit {
     this.lastName = lastName;
     if (!lastNameResult) {
         alert('The Last Name should be an Alpha-Numeric Character and the length of the field should be between 3 and 30 characters');
-        this.isValid=false;
+        this.isValid = false;
     }
     const phoneNumber = document.forms['sign-up-form']['phoneNumber'].value;
     const phoneNumberRegex = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
     const phoneNumberResult = phoneNumberRegex.test(phoneNumber);
-    this.phoneNumber=phoneNumber;
+    this.phoneNumber = phoneNumber;
     if (!phoneNumberResult) {
         alert('The Phone Number is not valid');
-        this.isValid=false;
+        this.isValid = false;
     }
     const emailAddress = document.forms['sign-up-form']['email'].value;
     // tslint:disable-next-line:max-line-length
@@ -89,7 +84,7 @@ export class SignUpComponent implements OnInit {
     this.email = emailAddress;
     if (!emailAddressResult) {
         alert('The Email Address is not valid');
-        this.isValid=false;
+        this.isValid = false;
     }
 
     const password = document.forms['sign-up-form']['password'].value;
@@ -98,26 +93,24 @@ export class SignUpComponent implements OnInit {
     this.password = password;
     if (!passwordResult) {
         alert('The Password is not valid');
-        this.isValid=false;
+        this.isValid = false;
     }
     const repeatPassword = document.forms['sign-up-form']['passwordRepeat'].value;
     const repeatPasswordResult = repeatPassword === password;
     if (!repeatPasswordResult) {
         alert('The Passwords do not match');
-        this.isValid=false;
+        this.isValid = false;
     }
     return this.isValid;
   }
 
 
-  checkUserExist(phoneNumber,password,firstName,router ,callback) {
-      
-    this.authenticate.userExist(phoneNumber,password,firstName)
+  checkUserExist(phoneNumber, password, firstName, router , callback) {
+    this.authenticate.userExist(phoneNumber, password, firstName)
     .subscribe(userDetails => this.userDetails = userDetails,
         );
-
-        setTimeout(()=>{
-            callback( this.userDetails.isUserExist, this.userDetails.phoneNumber,router);
+        setTimeout(() => {
+            callback( this.userDetails.isUserExist, this.userDetails.phoneNumber, router);
         }, 500);
   }
 }

@@ -18,8 +18,8 @@ export class ChatWindowComponent implements OnInit {
 
   private chats: any[] = [];
   public chat: Chat;
-  message:string = '';
-  type:string = '';
+  message: String = '';
+  type: String = '';
   number:string;
 
   constructor(private db: AngularFireDatabase,private zone:NgZone,private router: Router, private route: ActivatedRoute) { 

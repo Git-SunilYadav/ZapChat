@@ -1,4 +1,4 @@
-import { Component, OnInit , Input,EventEmitter,Output} from '@angular/core';
+import { Component, OnInit , Input,EventEmitter,Output,AfterContentInit} from '@angular/core';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import {AngularFireDatabase } from 'angularfire2/database';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -29,9 +29,10 @@ export class ContactListComponent implements OnInit{
 
     });
   }
-
-  showMessages(number){
+// Show messages for the number
+  showMessages(number) {
     this.childEvent.emit(number);
   }
+
 
 }

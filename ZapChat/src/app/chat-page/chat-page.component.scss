@@ -1,74 +1,122 @@
 $color_1: #f2f2f2;
 $color_2: black;
 $color_3: white;
-$font_family_1: Arial, Helvetica, sans-serif;
+$font_family_1: Arial,
+Helvetica,
+sans-serif;
 $background_color_1: #333;
 $background_color_2: #ddd;
 $background_color_3: #F5D244;
 
 body {
-	margin: 0;
-	font-family: $font_family_1;
+  margin: 0;
+  font-family: $font_family_1;
 }
-.Profile{
+
+.Profile {
   float: left;
   padding-top: 5px;
   padding-left: 5px;
   padding-right: 5px;
 }
-span{
+
+span {
   float: left;
   padding-top: 13px;
   padding-left: 8px;
   padding-right: 8px;
   color: $color_3;
 }
+
 .navigationBar {
-	overflow: hidden;
-	background-color: $background_color_1;
-	a {
-		float: left;
-		color: $color_1;
-		text-align: center;
-		padding: 14px 16px;
-		text-decoration: none;
+  overflow: hidden;
+  background-color: $background_color_1;
+
+  a {
+    float: left;
+    color: $color_1;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
     font-size: 17px;
     padding-bottom: 7px;
-		&:hover {
-			background-color: $background_color_2;
+
+    &:hover {
+      background-color: $background_color_2;
       color: $color_2;
       height: 100%;
-		}
-	}
-	a.active {
-		background-color: $background_color_3;
-		color: $color_2;
+    }
   }
-  a.settings{
+
+  a.active {
+    background-color: $background_color_3;
+    color: $color_2;
+    height: 30px;
+    width: 30px;
+    padding-left: 10px;
+    padding-top: 5px;
+  }
+
+  a.settings {
     float: right;
     height: 30px;
     width: 30px;
     padding-left: 10px;
     padding-top: 5px;
-    &:hover{
+
+    &:hover {
       background-color: $background_color_1;
-       transition-delay: 250ms;
-     -webkit-transform: rotateZ(55deg);
-       -moz-transform: rotateZ(55deg);
-       transform: rotateZ(55deg);
-   }
+      transition-delay: 250ms;
+      -webkit-transform: rotateZ(55deg);
+      -moz-transform: rotateZ(55deg);
+      transform: rotateZ(55deg);
+    }
   }
-  a.addContacts{
+
+  a.addContacts {
     height: 30px;
     width: 30px;
     padding-left: 10px;
     padding-top: 5px;
-     &:hover{
+
+    &:hover {
       background-color: $background_color_1;
-       transition-delay: 250ms;
-     -webkit-transform: rotateZ(55deg);
-       -moz-transform: rotateZ(55deg);
-       transform: rotateZ(55deg);
-   }
+      transition-delay: 250ms;
+      -webkit-transform: rotateZ(55deg);
+      -moz-transform: rotateZ(55deg);
+      transform: rotateZ(55deg);
+    }
+  }
+
+  a.contactBook {
+    height: 30px;
+    width: 30px;
+    padding-left: 10px;
+    padding-top: 5px;
+    background-color: $background_color_1;
+  }
 }
+.contactName {
+  margin-left: 35px;
+  padding-top: 0px;
+  margin-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 20px;
+  width: 130px;
+  height: 20px;
+  //display: inline block;
+}
+
+.contactList {
+  cursor: pointer;
+  position: relative;
+  padding: 8px 12px 40px;
+  list-style-type: none;
+  font-size: 18px;
+  transition: 0.2s;
+  display: inline block;
+}
+
+.contact {
+  padding: 5px;
 }
