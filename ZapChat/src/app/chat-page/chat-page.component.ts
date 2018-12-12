@@ -10,9 +10,10 @@ import {AngularFireDatabase } from 'angularfire2/database';
   styleUrls: ['./chat-page.component.scss']
 })
 export class ChatPageComponent implements OnInit, OnDestroy {
-  mobileNo: String;
+  public mobileNo: String;
   private sub: any;
-  addContactWasClicked = false;
+  public messageNumber: String = '';
+  isContactListVisible = true;
   contactList: any[];
 
   constructor(db: AngularFireDatabase, private route: ActivatedRoute ) {
@@ -30,10 +31,10 @@ export class ChatPageComponent implements OnInit, OnDestroy {
   }
   // functions to toggle between add contacts and contact list
   setAddContacts(clicked: boolean) {
-      this.addContactWasClicked = clicked;
+      this.isContactListVisible = false;
     }
   setContactList(clicked: boolean) {
-    this.addContactWasClicked = !clicked;
+    this.isContactListVisible = true;
   }
   ngOnDestroy() {
     this.sub.unsubscribe();

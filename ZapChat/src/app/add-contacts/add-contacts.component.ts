@@ -29,10 +29,7 @@ export class AddContactsComponent implements OnInit {
       if (this.validate() && this.checkAddContact(this.addContact.newContact, this.addContact.firstName, this.addContact.phoneNumber)) {
         setTimeout(() => {
           if (this.addContact) {
-          alert('added Contact successfully');
-          // return this.router.navigate([/<a [routerLink]="[ '/chatPage', ChatPageComponent ]">chat</a>]);
-          /// <a [routerLink]="[ '/path']">name</a>
-          this.router.navigate(['chatPage', this.phoneNumber]);
+          alert('added Contact successfully');        
         } else {
           alert('Invalid credentials');
           }
