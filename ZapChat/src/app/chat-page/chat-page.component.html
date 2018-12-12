@@ -3,12 +3,13 @@
   <a href="#Username">Username</a>
   <a class="active" href="#Contacts">Contacts</a>
   <a href="#Settings">Settings</a>
+  <a> {{messageNumber}}</a>
 </div>
 <div class="parentDiv">
   <div class="contactListDiv">
-    <app-contact-list></app-contact-list>
+    <app-contact-list (childEvent)= "messageNumber=$event"  [mobileNo] = 'mobileNo' ></app-contact-list>
   </div>
  <div class="chatWindowDiv">
-    <app-chat-window></app-chat-window>
+    <app-chat-window [messageNumber] = 'messageNumber' [mobileNo] = 'mobileNo' ></app-chat-window>
   </div>
 </div>

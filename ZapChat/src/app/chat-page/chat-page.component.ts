@@ -7,8 +7,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./chat-page.component.scss']
 })
 export class ChatPageComponent implements OnInit, OnDestroy{
-  mobileNo: String;
+  public mobileNo: String;
   private sub: any;
+  public messageNumber: String = '';
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
