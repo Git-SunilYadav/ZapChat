@@ -15,7 +15,6 @@ h1 {
   font-family: $font_family_1;
   //	font: 6em "Comic Sans MS";
   color: white;
-  padding-left: 1.5em;
 }
 p{
   color: white;
@@ -46,8 +45,8 @@ p{
 .id01 {
   background-image: url('/assets/images/zapchat5.png');
   background-repeat: no-repeat;
-  height: 524px;
-  width: 1280px;
+  height: 510px;
+  width: 1250px;
   margin-bottom: -4px;
   margin-right: -2px;
   margin-left: -8px;
@@ -184,7 +183,8 @@ color:#66b3ff;
   background-color: $background_color_6;
   margin: 3% auto 3% auto;
   border: 1px solid rgb(248, 206, 206);
-  width: 47%;
+  width: 49%;
+  margin-left: -65px;
   box-sizing: border-box;
   position: absolute;
   top: 53px;

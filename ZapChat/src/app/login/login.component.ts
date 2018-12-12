@@ -1,4 +1,3 @@
-import { RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LoginDetails } from '../models/loginDetails';
 import { AuthenticateUserService } from '../services/authenticate-user.service';
@@ -23,6 +22,7 @@ constructor(private authenticate: AuthenticateUserService, private router: Route
   ngOnInit() {
   }
 
+  //function to call login functionality
   onClickLogin() {
     this.validate();
     this.loginDetails = new LoginDetails();
@@ -35,10 +35,7 @@ constructor(private authenticate: AuthenticateUserService, private router: Route
       if (this.checkLogin(this.phoneNumber, this.password)) {
         setTimeout(() => {
           if (this.loginDetails.isValid) {
-          alert('login successful');
-          // return this.router.navigate([/<a [routerLink]="[ '/chatPage', ChatPageComponent ]">chat</a>]);
-          /// <a [routerLink]="[ '/path']">name</a>
-          this.router.navigate(['chatPage', this.phoneNumber]);
+            this.router.navigate(['chatPage', this.phoneNumber]);
         } else {
           alert('Invalid credentials');
           }
@@ -46,6 +43,7 @@ constructor(private authenticate: AuthenticateUserService, private router: Route
       }
     }
   }
+
 validate() {
   // Validation of all the fields of form using regex
     const phoneNumber = document.forms['loginForm']['phoneNumber'].value;
@@ -66,6 +64,8 @@ validate() {
     }
     return this.isValid;
   }
+
+ //function to bind login data 
  checkLogin(loginId, password) {
     this.authenticate.loginAuthenticate(loginId, password).subscribe(loginDetails => this.loginDetails = loginDetails);
     return true;

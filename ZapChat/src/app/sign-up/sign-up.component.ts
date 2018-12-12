@@ -1,10 +1,8 @@
-import { LoginComponent } from './../login/login.component';
-import { ChatPageComponent } from './../chat-page/chat-page.component';
 import { UserDetails } from '../models/UserDetails';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticateUserService } from '../services/authenticate-user.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { callbackify } from 'util';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -50,6 +48,7 @@ export class SignUpComponent implements OnInit {
         );
     }
   }
+
   // Validation Function
   validate() {
     // Validation of all the fields of form using regex
@@ -78,7 +77,6 @@ export class SignUpComponent implements OnInit {
         this.isValid = false;
     }
     const emailAddress = document.forms['sign-up-form']['email'].value;
-    // tslint:disable-next-line:max-line-length
     const emailAddressRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const emailAddressResult = emailAddressRegex.test(emailAddress);
     this.email = emailAddress;
@@ -104,7 +102,7 @@ export class SignUpComponent implements OnInit {
     return this.isValid;
   }
 
-
+  //function to bind data from signup api
   checkUserExist(phoneNumber, password, firstName, router , callback) {
     this.authenticate.userExist(phoneNumber, password, firstName)
     .subscribe(userDetails => this.userDetails = userDetails,
