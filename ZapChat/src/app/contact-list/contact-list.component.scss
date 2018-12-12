@@ -34,12 +34,14 @@ ul {
   li {
     padding-bottom: 10px;
     border-bottom: 1px dashed lightgrey;
+    -moz-box-shadow: 3px 4px 3px #ccc;
+    -webkit-box-shadow: 3px 4px 3px #ccc;
+    box-shadow: 3px 4px 3px #ccc;
 
     &:hover {
       background-color: $background_color_2;
       -webkit-animation-delay: 1s;
       animation-delay: 1s;
-
     }
   }
 }
