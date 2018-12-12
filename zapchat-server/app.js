@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-// const cors = require('cors');
 
 const userRoutes = require('./api/routes/user');
 app.use(morgan('dev'));
@@ -24,7 +23,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-
+//routing to user routes
 app.use('/user', userRoutes);
 
 app.use((req, res, next) =>{
