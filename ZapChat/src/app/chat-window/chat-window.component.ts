@@ -3,6 +3,8 @@ import { Chat } from './../chat-window/chat';
 import {AngularFireDatabase } from 'angularfire2/database';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { AuthenticateUserService } from '../authenticate-user.service';
+import { text } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-chat-window',
@@ -40,6 +42,24 @@ export class ChatWindowComponent implements OnInit {
   clearText() {
     this.message = '';
     this.type = '';
+  }
+
+  sendMessage(){
+    this.message = document.getElementsByTagName("input")[0].value;
+    this.type='sent';
+    if(this.sendingMessage(this.message, this.type)) {
+      this.clearText();
+      document.getElementsByTagName("input")[0].value='';
+    }
+    else {
+      alert('Message sending failed');
+    }
+   
+  }
+
+  sendingMessage(message, type) {
+    this.authenticate.messageSent(message, type).subscribe(chat => this.chat = chat);
+    return true;
   }
   
   ngOnDestroy() {
