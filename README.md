@@ -1,7 +1,27 @@
-# Chat Application for desktop
+# ZapChat - Chat Application for desktop
 
 ## Overview  
-We propose to create a web-chat application for desktop. This application will have various functionalities like registration, login, one to one chatting, notification updates, deletion of messages etc. We propose to use *Firebase Real-time Database for database and data synchronization*.
+We have created a web-chat application for desktop. This application has various functionalities like registration, login, one to one chatting, add contacts, etc. We have used *Firebase Real-time Database for database and data synchronization*.
+
+## Requirements
+- Angular
+- NodeJS
+- AngularFire2
+- Firebase Real-time database
+
+## How to run
+1) Clone the repository or download the zip file. Open the terminal and install node modules. Execute following commands to resolve dependencies
+    - *npm install*
+    - *npm install firebase-admin --save*
+    - *npm install --save firebase*
+    - *npm install angularfire2 --save*
+    - *npm install --save express*
+    - *npm install --save body-parser*
+    
+    
+2) To start Zapchat Server, run command *npm start*
+3) To start Zapchat application, run command *ng serve --open*
+You will be redirected to the browser.
 
 ## User Stories
 1) As a user, I should be able to see a login screen when i hit the url for chat application.
@@ -38,7 +58,6 @@ We propose to create a web-chat application for desktop. This application will h
 
 17) As a user, I should be able to see a text field to type messages at the bottom of the chat.
 
-18) As a user, I should be able to delete any messages I sent.
 
 ## Model Design
 
