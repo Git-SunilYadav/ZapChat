@@ -1,6 +1,5 @@
 import { Component,OnInit  } from '@angular/core';
 import { MessagingService } from "./messaging.service";
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,4 +15,13 @@ export class AppComponent implements OnInit {
   }
 
   title = 'ZapChat';
+  constructor(private messagingService: NotificationService) { }
+
+  message;
+  ngOnInit() {
+    this.messagingService.requestPermission()
+    this.messagingService.receiveMessage()
+    this.message = this.messagingService.currentMessage.subscribe(message => this.message = message);
+  }
+ 
 }
