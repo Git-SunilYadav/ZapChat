@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LoginDetails } from './login/loginDetails';
-import { UserDetails } from './sign-up/UserDetails';
-import { Chat } from './chat-window/chat';
+import { LoginDetails } from '../models/loginDetails';
+import { UserDetails } from '../models/UserDetails';
+import { Chat } from '../models/chat';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };

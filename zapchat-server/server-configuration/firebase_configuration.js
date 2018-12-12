@@ -1,5 +1,6 @@
 var admin = require("firebase-admin");
 
+//configuration to connect to database
 module.exports = {
     registerApplication: function() {
         return admin.initializeApp({
