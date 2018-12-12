@@ -71,4 +71,13 @@ button {
   height: 140px;
   width: 140px;
   margin-left: 48px;
+  padding: 5px;
+  border: solid 1px #EFEFEF;
+}
+
+*:hover img.addContactImage {
+  border: solid 1px #CCC;
+  -moz-box-shadow: 1px 1px 5px #999;
+  -webkit-box-shadow: 1px 1px 5px #999;
+      box-shadow: 1px 1px 5px #999;
 }

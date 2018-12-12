@@ -1,7 +1,7 @@
 <div id="contactPanel">
   <ul class="contactList">
       <li *ngFor="let contact of contactList">
-          <div class="contact" >
+          <div class="contact" (click)="showMessages(contact.phoneNumber)">
              <span class="profileImage"><img src="assets/images/Profile-wolf.png" height="30px" width="30px"></span>
                 <span id="contactNames"class="contactName">{{contact.name}}</span>
                 <ng-container *ngIf="contact.unreadMessages > '0'; then thenTemplate; else elseTemplate"></ng-container>
@@ -12,7 +12,7 @@
                   <span class="unreadMessageZero"></span>
                 </ng-template>
                 <br>
-                <span id="contactNumber" class="contactPhoneNumber" (click)="showMessages(contact.phoneNumber)">{{contact.phoneNumber}}</span>
+                <span id="contactNumber" class="contactPhoneNumber" >{{contact.phoneNumber}}</span>
             </div>
       </li>
   </ul>
