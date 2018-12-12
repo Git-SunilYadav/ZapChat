@@ -15,7 +15,8 @@ phoneNumber: String = '';
 password: String = '';
 response: String = '';
 isValid: Boolean = true;
-
+active: Boolean = false;
+type: string = "text";
 constructor(private authenticate: AuthenticateUserService, private router: Router, private route: ActivatedRoute ) {
    }
 
@@ -65,9 +66,13 @@ validate() {
     }
     return this.isValid;
   }
-
  checkLogin(loginId, password) {
     this.authenticate.loginAuthenticate(loginId, password).subscribe(loginDetails => this.loginDetails = loginDetails);
     return true;
   }
-}
+  passwordControl(){
+    this.active = !this.active
+  }
+  
+  }
+  
