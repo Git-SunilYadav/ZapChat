@@ -1,12 +1,10 @@
 <div class="navigationBar">
   <img src="/assets/images/Profile-Picture.png" height="35px" width="35px" class="Profile">
   <a class="username">Username</a>
-  <a class="contacts active" (click)="setContactList(true)"><img src="/assets/images/contact-book.png" height="35px"
-      width="35px" class="contactBook"></a>
-  <a class="addContacts" (click)="setAddContacts(true)"><img src="/assets/images/add-icon.png" height="35px" width="35px"
-      class="addIcon"></a>
-  <a href="#Settings" class="settings"><img src="/assets/images/settings.png" height="35px" width="35px" class="settingsIcon"></a>
-  <a> {{messageNumber}}</a>
+  <a class="contacts active" (click)="setContactList(true)"><img class="contactBookImage" src="/assets/images/contact-book.png"></a>
+  <a class="addContacts" (click)="setAddContacts(true)"><img class="addContactImage" src="/assets/images/add-icon.png"></a>
+  <a href="#Settings" class="settings"><img class="settingsImage" src="/assets/images/logout.png"></a>
+  <a class="activeChat"> {{messageNumber}}</a>
 </div>
 <!--Adding the different components on the main chat page-->
 <div class="parentDiv">

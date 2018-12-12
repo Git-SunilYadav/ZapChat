@@ -5,6 +5,7 @@ $background_color_2: #efefef;
 $background_color_3: #D6FED5;
 $background_color_4: #FFFFEE;
 $background_color_5: #606060;
+$background_color_6: #333;
 $font_family_1: sans-serif;
 $padding_value_1: 10px;
 $padding_value_2: 5px;
@@ -13,22 +14,42 @@ $margin_value_1: 1px;
 $margin_value_2: 3px;
 $value_1: 15px;
 $font_size_value: 17px;
+*::-webkit-scrollbar {
+  width: 10px;
+}
 
+*::-webkit-scrollbar-thumb {
+  background: rgb(240, 240, 240);
+  border-style: groove;
+  border-radius: 10px;
+}
 
 .mainDiv {
-  height: 530px;
+  height: 435px;
   color: $color_1;
   margin-top: $margin_value_1;
   margin-bottom: $margin_value_1;
   padding: $padding_value_2;
-  overflow: auto;
+  //overflow: scroll;
+  //overflow:auto;
   width: 74%;
   float: right;
   background-image: url('/assets/images/tile2.png');
   background-repeat: no-repeat;
-  background-size: 930px 430px;
+  background-size: 935px 440px;
 }
-
+.chatWindow{
+  overflow: auto;
+ height: 430px;
+ //position: absolute;
+ bottom: 20;
+}
+#wrapper{
+  position: relative;
+    height: 425px;
+    width: 920px;
+    overflow: hidden;
+}
 .receivedDiv {
   background-color: $color_1;
   color: $color_2;
@@ -41,6 +62,9 @@ $font_size_value: 17px;
   padding-right: $padding_value_1;
   padding-top: $padding_value_2;
   padding-bottom: $padding_value_2;
+  -moz-box-shadow: 3px 4px 3px #ccc;
+  -webkit-box-shadow: 3px 4px 3px #ccc;
+  box-shadow: 3px 4px 3px #ccc;;
 }
 
 .sentDiv {
@@ -52,9 +76,12 @@ $font_size_value: 17px;
   margin-bottom: $margin_value;
   border-radius: $padding_value_2;
   padding-left: $padding_value_1;
-  padding-right: $padding_value_1;
+  padding-right: $value_1;
   padding-top: $padding_value_2;
   padding-bottom: $padding_value_2;
+  -moz-box-shadow: 3px 4px 3px #ccc;
+  -webkit-box-shadow: 3px 4px 3px #ccc;
+  box-shadow: 3px 4px 3px #ccc;;
 }
 
 .clear {
@@ -69,26 +96,40 @@ $font_size_value: 17px;
 .textBox {
 	position: fixed;
   bottom: $value_1;
+  //margin: 20px;
+  z-index: 1;
+  opacity: 1;
+  overflow: hidden;
+  width: 71.8%;
+  padding: 5px;
+  padding-left: 15px;
+  background-color: $background_color_6;
 }
 
 
 .sendButton{
-	display: block;
+//	display:inline;
 	float: right;
-	height: 45px;
-	margin: -1px -2px -2px;
-	width: 60px;
-	margin-top: 20px;
-	margin-left: 10px;
+  height: 45px;
+	//width: 60px;
+	margin-top: 17px;
+  margin-left: 10px;
+  margin-right: 9px;
+  cursor: pointer;
+  margin-bottom: 0px;
+}
+.sendIcon{
+  width: 35px;
+  height: 35px;
 }
 
 input[type=text] {
-  //width: 99%;
-  padding: 12px 20px;
+  width: 94%;
+  padding: 12px 10px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid $background_color_5;
   border-radius: 4px;
   box-sizing: border-box;
-  margin-top: 20px;
+  margin-top: 10px;
 }

@@ -37,12 +37,11 @@ public chat: Chat;
     .pipe();
    }
 
-   messageSent (message, type): Observable<Chat> {
+   messageSent (message, type, senderNumber, receiverNumber): Observable<Chat> {
     this.chat = new Chat();
     this.chat.message = message;
-    //this.chat.type = type;
-    this.chat.senderNumber = '8578693255';
-    this.chat.receiverNumber = '8578692727';
+    this.chat.senderNumber = senderNumber;
+    this.chat.receiverNumber = receiverNumber;
 
     return this.http.post<Chat>('http://localhost:3000/user/sendMessage', this.chat)
     .pipe();

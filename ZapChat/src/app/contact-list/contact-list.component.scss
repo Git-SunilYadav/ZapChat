@@ -11,7 +11,8 @@ $color_1: black;
 }
 
 *::-webkit-scrollbar-thumb {
-  background: rgb(100, 100, 100);
+  background: rgb(220, 220, 220);
+  border-style: groove;
   border-radius: 10px;
 }
 
@@ -32,14 +33,18 @@ ul {
   padding: 0;
 
   li {
-    padding-bottom: 10px;
+    padding-bottom: 11px;
+    padding-top: 1px;
+    height: 60px;
     border-bottom: 1px dashed lightgrey;
+    -moz-box-shadow: 3px 4px 3px #ccc;
+    -webkit-box-shadow: 3px 4px 3px #ccc;
+    box-shadow: 3px 4px 3px #ccc;
 
     &:hover {
       background-color: $background_color_2;
       -webkit-animation-delay: 1s;
       animation-delay: 1s;
-
     }
   }
 }
@@ -47,7 +52,7 @@ ul {
 .contactList {
   cursor: pointer;
   position: relative;
-  padding: 8px 12px 40px;
+  padding: 5px 5px 12px;
   list-style-type: none;
   font-size: 18px;
   transition: 0.2s;
@@ -57,14 +62,16 @@ ul {
 
 .contact {
   padding: 5px;
+  margin-top: 8px;
 }
 
 .unreadMessage {
   float: right;
   align-content: center;
   background-color: $background_color_4;
-  //margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+  //margin-top: 20px;
+  margin-right: 5px;
   color: $background_color_1;
   width: 20px;
   height: 20px;
@@ -80,7 +87,7 @@ ul {
   float: right;
   align-content: center;
   //background-color: red;
-  //margin-top: 10px;
+ // margin-top: 20px;
   width: 20px;
   height: 20px;
   padding: 2px;
@@ -103,9 +110,9 @@ ul {
 .contactName {
   margin-left: 35px;
   padding-top: 0px;
-  margin-top: 0px;
+  margin-top: 2px;
   padding-bottom: 0px;
-  margin-bottom: 20px;
+  //margin-bottom: 20px;
   width: 130px;
   height: 20px;
   //display: inline block;
@@ -116,7 +123,7 @@ li:hover .contactPhoneNumber{
 }
 
 .profileImage {
-  margin-top: 3px;
+  margin-top: 8px;
   float: left;
   width: 30px;
   height: 30px;

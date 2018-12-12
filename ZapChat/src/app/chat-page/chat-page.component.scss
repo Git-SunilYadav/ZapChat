@@ -31,6 +31,7 @@ span {
 .navigationBar {
   overflow: hidden;
   background-color: $background_color_1;
+  height: 45px;
 
   a {
     float: left;
@@ -48,14 +49,14 @@ span {
     }
   }
 
-  a.active {
-    background-color: $background_color_3;
+  /*a.active {
+    background-color: $background_color_1;
     color: $color_2;
     height: 30px;
     width: 30px;
     padding-left: 10px;
     padding-top: 5px;
-  }
+  }*/
 
   a.settings {
     float: right;
@@ -66,35 +67,52 @@ span {
 
     &:hover {
       background-color: $background_color_1;
-      transition-delay: 250ms;
-      -webkit-transform: rotateZ(55deg);
-      -moz-transform: rotateZ(55deg);
-      transform: rotateZ(55deg);
+      transition-delay: 450ms;
+      transition: 300ms linear all;
+      -webkit-transform: rotateZ(-90deg);
+      -moz-transform: rotateZ(-90deg);
+      transform: rotateZ(-90deg);
     }
   }
 
   a.addContacts {
     height: 30px;
     width: 30px;
-    padding-left: 10px;
+    margin-left: 10px;
+    padding-left: 15px;
     padding-top: 5px;
-
     &:hover {
-      background-color: $background_color_1;
-      transition-delay: 250ms;
-      -webkit-transform: rotateZ(55deg);
-      -moz-transform: rotateZ(55deg);
-      transform: rotateZ(55deg);
-    }
+       background-color: $background_color_1;
+       transition-delay: 350ms;
+       transition: 800ms linear all;
+       -webkit-transform: rotateZ(360deg);
+       -moz-transform: rotateZ(360deg);
+       transform: rotateZ(360deg);
+     }
+
   }
 
-  a.contactBook {
+  a.contacts {
     height: 30px;
     width: 30px;
-    padding-left: 10px;
+    margin-left: 10px;
+    padding-left: 15px;
     padding-top: 5px;
-    background-color: $background_color_1;
-  }
+    &:hover {
+       background-color: $background_color_1;
+       transition-delay: 350ms;
+       transition: 600ms linear all;
+       -webkit-transform: rotateZ(360deg);
+       -moz-transform: rotateZ(360deg);
+       transform: rotateZ(360deg);
+     }
+    }
+    a.activeChat{
+      height: 45px;
+      padding-left: 20px;
+      margin-left: 30px;
+      border-left: #737373 groove;
+    }
 }
 .contactName {
   margin-left: 35px;
@@ -120,3 +138,16 @@ span {
 .contact {
   padding: 5px;
 }
+.contactBookImage{
+  height: 35px;
+  width: 35px;
+}
+.addContactImage{
+  height: 35px;
+  width: 35px;
+}
+.settingsImage{
+  height: 35px;
+  width: 35px;
+}
+

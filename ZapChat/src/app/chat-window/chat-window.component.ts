@@ -1,10 +1,11 @@
-import { Component, OnInit, NgZone, Input, SimpleChanges, OnDestroy } from '@angular/core';
+import { Component, OnInit, NgZone, Input, SimpleChanges, OnDestroy  } from '@angular/core';
 import { Chat } from './../chat-window/chat';
 import {AngularFireDatabase } from 'angularfire2/database';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { AuthenticateUserService } from '../authenticate-user.service';
 import { text } from '@angular/core/src/render3';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-chat-window',
@@ -23,6 +24,7 @@ export class ChatWindowComponent implements OnInit {
   message: String = '';
   type: String = '';
   number:string;
+  txtMessage:string;
 
   // tslint:disable-next-line:max-line-length
   constructor(private db: AngularFireDatabase, private zone: NgZone, private router: Router, private route: ActivatedRoute, private authenticate: AuthenticateUserService) {
@@ -45,19 +47,19 @@ export class ChatWindowComponent implements OnInit {
   }
 
   sendMessage() {
-    this.message = document.getElementsByTagName('input')[0].value;
+    this.message =this.txtMessage;
+    debugger;
     this.type = 'sent';
-    if (this.sendingMessage(this.message, this.type)) {
-      this.clearText();
-      document.getElementsByTagName('input')[0].value = '';
+    if (this.sendingMessage(this.message, this.type, this.mobileNo, this.messageNumber)) {
+      this.txtMessage = "";
     } else {
       alert('Message sending failed');
     }
 
   }
 
-  sendingMessage(message, type) {
-    this.authenticate.messageSent(message, type).subscribe(chat => this.chat = chat);
+  sendingMessage(message, type, senderNumber, receiverNumber) {
+    this.authenticate.messageSent(message, type, senderNumber, receiverNumber).subscribe(chat => this.chat = chat);
     return true;
   }
 

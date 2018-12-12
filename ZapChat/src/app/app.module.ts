@@ -19,6 +19,7 @@ import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import { AddContactsComponent } from './add-contacts/add-contacts.component';
 import { NotificationComponent } from './notification/notification.component';
+import { FormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireAuth } from 'angularfire2/auth';
 import {AngularFireMessagingModule } from '@angular/fire/messaging';
@@ -43,6 +44,7 @@ import { NotificationService } from '../app/notification.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireMessagingModule,
+    FormsModule,
     AngularFireAuthModule,
     RouterModule.forRoot([
       {
@@ -66,7 +68,6 @@ import { NotificationService } from '../app/notification.service';
         component: NotificationComponent
       },
       {
-      
         path: 'chatPage/:number',
         component: ChatPageComponent
       },
@@ -91,7 +92,6 @@ import { NotificationService } from '../app/notification.service';
   providers: [
     AuthenticateUserService,
     NotificationService
-    
   ],
   bootstrap: [AppComponent]
 })
