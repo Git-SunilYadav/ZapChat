@@ -1,0 +1,74 @@
+$color_1: black;
+$background_color_1: #ddd;
+$background_color_2: #4CAF50;
+$background_color_3: #fefefe;
+.createContactPanel{
+/*  background-image: url('/assets/images/chat-background.png');
+  background-repeat: no-repeat;
+  height: 525px;*/
+  // width: 30%;
+  margin-left: 0px;
+  margin-right: 5px;
+  float: left;
+  margin-top: 1px;
+}
+input[type=text] {
+	width: 150px;
+	padding: 5px;
+	margin: 1px 0 2px 0;
+	border: none;
+	background: #f1f1f1;
+}
+input {
+	&:focus {
+		background-color: $background_color_1;
+		outline: none;
+	}
+}
+button {
+	background-color: $background_color_2;
+	color: $color_1;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 150px;
+	opacity: 0.9;
+	&:hover {
+		opacity: 1;
+	}
+}
+.loginButton {
+	width: 100%;
+	color: $color_1;
+	background-color: $background_color_2;
+	&:hover {
+		cursor: pointer;
+	}
+}
+.form {
+	background-color: $background_color_3;
+  margin-right: 1px;
+  margin-top: 1px;
+  padding: 36px;
+  padding-left: 46px;
+	//width: 27%;
+}
+* {
+	box-sizing: border-box;
+}
+.inputs {
+	padding-left: 35px;
+}
+.addContact {
+	padding: 35px;
+}
+.header {
+  padding-left: 30px;
+  padding-right: 5px;
+}
+.addContactImage{
+  height: 140px;
+  width: 140px;
+  margin-left: 48px;
+}

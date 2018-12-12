@@ -1,0 +1,16 @@
+<div class="createContactPanel">
+  <form class="form" name="addContact" >
+      <div class="header">
+          <h1>Add Contact!</h1>
+      </div>
+      <div class="inputs">
+              <input type="text" id="newContact" name='newContact' placeholder="Phone Number.." required maxlength="12">
+              <br>
+              <input type="text" name='name' placeholder="Contact Name.." required>
+      </div>
+      <div class="addContact">
+              <button type="button" class='addButton' id='addBtn' (click)="onClickAdd()">Add Contact!</button>
+   </div>
+   <img class="addContactImage"src="assets/images/add-contact.png" height="200px" width="200px">
+   </form>
+  </div>
