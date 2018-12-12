@@ -9,7 +9,7 @@ import { ChatWindowComponent } from './chat-window/chat-window.component';
 
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { AuthenticateUserService } from './authenticate-user.service';
+import { AuthenticateUserService } from '../app/services/authenticate-user.service';
 import { TermsComponent } from './terms/terms.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactListComponent } from './contact-list/contact-list.component';
@@ -90,8 +90,7 @@ import { NotificationService } from '../app/notification.service';
   ])
   ],
   providers: [
-    AuthenticateUserService,
-    NotificationService
+    AuthenticateUserService
   ],
   bootstrap: [AppComponent]
 })
