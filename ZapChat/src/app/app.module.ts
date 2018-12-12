@@ -38,24 +38,12 @@ import { AddContactsComponent } from './add-contacts/add-contacts.component';
     AngularFireDatabaseModule,
     RouterModule.forRoot([
       {
-        path: 'terms',
-        component: TermsComponent
-      },
-      {
-        path: 'signUp',
-        component: SignUpComponent
-      },
-      {
         path: 'contactList',
         component: ContactListComponent
       },
       {
-        path: 'addcontacts',
+        path: 'addContacts',
         component: AddContactsComponent
-      },
-      {
-      path: '',
-      component: LoginComponent
       },
       {
         path: 'chatPage/:number',
@@ -64,7 +52,19 @@ import { AddContactsComponent } from './add-contacts/add-contacts.component';
        {
         path: 'chatWindow',
         component: ChatWindowComponent
-      }
+      },
+      {
+        path: 'terms',
+        component: TermsComponent
+      },
+      {
+        path: 'signUp',
+        component: SignUpComponent
+      },
+      {
+        path: '',
+        component: LoginComponent
+      },
   ])
   ],
   providers: [

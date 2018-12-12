@@ -17,32 +17,31 @@ password: String = '';
 response: String = '';
 isValid: Boolean = true;
 
-constructor(private authenticate: AuthenticateUserService, private router: Router, private route: ActivatedRoute,) {
+constructor(private authenticate: AuthenticateUserService, private router: Router, private route: ActivatedRoute, ) {
 
    }
 
   ngOnInit() {
   }
 
-  onClickLogin(){
+  onClickLogin() {
     this.validate();
     this.loginDetails = new LoginDetails();
     this.loginDetails.isValid = false;
     this.loginDetails.phoneNumber = this.phoneNumber;
     this.loginDetails.password = this.password;
 
-    if(this.isValid){
-      if(this.checkLogin(this.phoneNumber, this.password)){
+    if (this.isValid) {
+      if (this.checkLogin(this.phoneNumber, this.password)) {
 
-        setTimeout(()=>{
-          if(this.loginDetails.isValid)
-        {
-          //return this.router.navigate([/<a [routerLink]="[ '/chatPage', ChatPageComponent ]">chat</a>]);
-          ///<a [routerLink]="[ '/path']">name</a>
-          this.router.navigate(['chatPage',this.phoneNumber]);
-        }
-        else{
-          alert("Invalid credentials");
+        setTimeout(() => {
+          if (this.loginDetails.isValid) {
+          alert('login successful');
+          // return this.router.navigate([/<a [routerLink]="[ '/chatPage', ChatPageComponent ]">chat</a>]);
+          /// <a [routerLink]="[ '/path']">name</a>
+          this.router.navigate(['chatPage', this.phoneNumber]);
+        } else {
+          alert('Invalid credentials');
         }
      }, 500);
     }

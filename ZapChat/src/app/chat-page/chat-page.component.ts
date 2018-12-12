@@ -1,16 +1,19 @@
-import { Component, OnInit, Input,OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { AddContactsComponent } from './../add-contacts/add-contacts.component';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-chat-page',
   templateUrl: './chat-page.component.html',
   styleUrls: ['./chat-page.component.scss']
 })
-export class ChatPageComponent implements OnInit, OnDestroy{
+export class ChatPageComponent implements OnInit, OnDestroy {
   public mobileNo: String;
   private sub: any;
   public messageNumber: String = '';
-  constructor(private route: ActivatedRoute) { }
+  addContactWasClicked = false;
+  constructor(private route: ActivatedRoute ) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -18,6 +21,12 @@ export class ChatPageComponent implements OnInit, OnDestroy{
       console.log(this.mobileNo);
     });
   }
+  setAddContacts(clicked: boolean) {
+    this.addContactWasClicked = clicked;
+}
+setContactList(clicked: boolean) {
+  this.addContactWasClicked = !clicked;
+}
   ngOnDestroy() {
     this.sub.unsubscribe();
   }

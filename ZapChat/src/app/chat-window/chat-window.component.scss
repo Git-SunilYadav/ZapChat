@@ -2,6 +2,8 @@ $color_1: #fff;
 $color_2: #000;
 $background_color_1: #006699;
 $background_color_2: #efefef;
+$background_color_3: #D6FED5;
+$background_color_4: #FFF9AE;
 $font_family_1: sans-serif;
 $padding_value_1: 10px;
 $padding_value_2: 5px;
@@ -9,16 +11,21 @@ $margin_value: 8px;
 $font_size_value: 17px;
 
 .mainDiv {
-	background-color: lightblue;
+ // background-color: #F5F9FD;
+  height: 530px;
 	color: $color_1;
-	margin: 0px auto;
+  margin-top: 1px;
+  margin-bottom: 1px;
 	padding: $padding_value_2;
 	overflow: auto;
-	width: 69%;
-	float: right;
+	width: 74%;
+  float: right;
+  background-image: url('/assets/images/tile.png');
+  background-repeat: no-repeat;
+  background-size: 930px 430px;
 }
 .receivedDiv {
-	background-color: $background_color_2;
+	background-color: $color_1;
 	color: $color_2;
 	float: left;
 	width: 60%;
@@ -31,7 +38,7 @@ $font_size_value: 17px;
 	padding-bottom: $padding_value_2;
 }
 .sentDiv {
-	background-color: $background_color_2;
+	background-color: $background_color_4;
 	color: $color_2;
 	width: 60%;
 	float: right;
