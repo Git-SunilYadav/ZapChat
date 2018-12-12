@@ -1,7 +1,6 @@
 import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
 import { AddContact } from '../models/addContact';
 import {AddContactService} from '../services/add-contact.service';
-import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -22,6 +21,8 @@ export class AddContactsComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  //function to add contact to contactList
   onClickAdd() {
     this.addContact = new AddContact();
     this.validate();
@@ -31,7 +32,7 @@ export class AddContactsComponent implements OnInit {
           if (this.addContact) {
           this.hideAddContactComponent() 
         } else {
-          alert('Invalid credentials');
+          alert('Something went wrong. Please try again!');
           }
         }, 500);
       }
@@ -59,6 +60,8 @@ export class AddContactsComponent implements OnInit {
 
     return true;
 }
+
+//function to bind contact data
 checkAddContact(contactNumber, name, phoneNumber) {
   this.add.addContactAuthenticate(contactNumber, name, phoneNumber).subscribe(addContact => this.addContact = addContact);
   return true;

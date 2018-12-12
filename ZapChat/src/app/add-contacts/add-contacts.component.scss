@@ -1,34 +1,29 @@
 $color_1: black;
 $background_color_1: #ddd;
-$background_color_2: #4CAF50;
+$background_color_2: #4E91D0;
 $background_color_3: #fefefe;
 
 .createContactPanel {
-  background-image: url('/assets/images/z.jpg');
-  background-repeat: no-repeat;
-  margin-left: 0px;
-  margin-right: 5px;
   float: left;
-  margin-top: 1px;
   height: 545px;
+  width: 28%;
   background-size: contain;
   margin-top: -8px;
   margin-bottom: -4px;
   margin-right: -7px;
   margin-left: -8px;
 }
-.blackOverlay{
+/*.blackOverlay{
   position: absolute;
   top: 0;
   left: 0;
-  width: 100% !important;
+  width: 30% !important;
   height: 100%;
   background-color: #F7F7F7;
   opacity: .17;
-  filter: Alpha(Opacity=30);
   z-index: 11;
   background: url("//img.carwale.com/cw-common/slide/overlay.png") repeat scroll 0 0 transparent;
-}
+}*/
 input[type=text] {
 	width: 150px;
 	padding: 5px;
@@ -44,7 +39,8 @@ input {
 }
 button {
 	background-color: $background_color_2;
-	color: $color_1;
+  background-image: linear-gradient(#4E91D0,#b3ffff );
+  color: white;
 	padding: 14px 20px;
 	margin: 8px 0;
 	border: none;
@@ -55,21 +51,23 @@ button {
 		opacity: 1;
 	}
 }
-.loginButton {
+.addButton {
 	width: 100%;
 	color: $color_1;
-	background-color: $background_color_2;
+  background-color: $background_color_2;
+  font-weight: bolder;
 	&:hover {
 		cursor: pointer;
 	}
 }
 .form {
-	background-color: $background_color_3;
+  background-color: black;
   margin-right: 1px;
-  margin-top: 1px;
+  margin-top: 8px;
+  margin-left: 8px;
   padding: 36px;
   padding-left: 46px;
-	//width: 27%;
+  color: white;
 }
 * {
 	box-sizing: border-box;
@@ -98,3 +96,9 @@ button {
   -webkit-box-shadow: 1px 1px 5px #999;
       box-shadow: 1px 1px 5px #999;
 }
+.backgroundImage{
+  height: 185px;
+  width: 340px;
+  margin-left: 8px;
+}
+

@@ -1,7 +1,4 @@
-import { ContactListComponent } from './../contact-list/contact-list.component';
-import { AddContactsComponent } from './../add-contacts/add-contacts.component';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
 import {AngularFireDatabase } from 'angularfire2/database';
 @Component({
@@ -28,6 +25,7 @@ export class ChatPageComponent implements OnInit, OnDestroy {
       console.log(this.mobileNo);
     });
   }
+  
   // functions to toggle between add contacts and contact list
   setAddContacts(clicked: boolean) {
       this.isContactListVisible = false;
