@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const APP = require('../../firebase_configuration.js');
+const APP = require('../../server-configuration/firebase_configuration');
 const db = APP.registerApplication().database();
 
 //api to show all user details
