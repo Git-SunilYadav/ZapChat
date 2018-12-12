@@ -126,6 +126,27 @@ router.post('/addContact/', (req, res, next) => {
     });
 });
 
+//api to update unreadMessages
+router.put('/unreadMessages/', (req, res, next) => {
+    var ref = db.ref("chat/" + req.body.mainNumber + "/contactList/" + req.body.contactNumber + "/");
+    UnreadMessages(ref, req, res, next,  function (data) {
+        if(data){
+            res.status(200).json({
+                message: 'UnreadMessages set to 0'
+            }).end();
+            
+        }
+        else
+        {
+            res.status(401).json({
+                message: 'UnreadMessages could not be reset'
+            }).end();
+        }
+
+    });
+});
+
+
 
 // Function to send message 
 function SendMessage(ref, senderNumber,receiverNumber,message , res, next, messageType,callback) {
@@ -221,5 +242,14 @@ function CreateUser(ref, req, res, next,callback) {
         callback(true);
     });
 };
+
+// Function to reset  unreadMessages 
+function UnreadMessages(ref, req, res, next,callback) {
+    ref.set({
+         unreadMessages: 0
+     }).then( function(){
+         callback(true);
+     });
+ };
 
 module.exports = router;
