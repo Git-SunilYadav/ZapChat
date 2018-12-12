@@ -48,7 +48,6 @@ button {
 }
 .form {
 	background-color: $background_color_3;
-  border: 1px solid #888;
   margin-right: 1px;
   margin-top: 1px;
   padding: 36px;
@@ -67,4 +66,9 @@ button {
 .header {
   padding-left: 30px;
   padding-right: 5px;
+}
+.addContactImage{
+  height: 140px;
+  width: 140px;
+  margin-left: 48px;
 }

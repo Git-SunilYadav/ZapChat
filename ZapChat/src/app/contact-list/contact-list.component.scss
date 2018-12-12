@@ -1,7 +1,8 @@
 $background_color_1: #ddd;
-$background_color_2: beige;
+$background_color_2: #f2f2f2;
 $background_color_3: #FFFFDD;
-$background_color_4: red;
+$background_color_5: white;
+$background_color_4: #ff1a1a;
 $color_1: black;
 
 
@@ -18,7 +19,7 @@ $color_1: black;
   width: 25%;
   margin-top: 1px;
   height: 530px;
-  background-color: $background_color_1;
+  background-color: $background_color_5;
   position: absolute;
   overflow: scroll;
   overflow-y: visible;
@@ -32,9 +33,7 @@ ul {
 
   li {
     padding-bottom: 10px;
-    border: bottom color $color_1;
-    ;
-    border-bottom-width: 1px;
+    border-bottom: 1px dashed lightgrey;
 
     &:hover {
       background-color: $background_color_2;
@@ -53,6 +52,7 @@ ul {
   font-size: 18px;
   transition: 0.2s;
   display: inline block;
+
 }
 
 .contact {
