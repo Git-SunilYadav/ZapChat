@@ -107,6 +107,12 @@ span {
        transform: rotateZ(360deg);
      }
     }
+    a.activeChat{
+      height: 45px;
+      padding-left: 20px;
+      margin-left: 30px;
+      border-left: #737373 groove;
+    }
 }
 .contactName {
   margin-left: 35px;
@@ -144,3 +150,4 @@ span {
   height: 35px;
   width: 35px;
 }
+

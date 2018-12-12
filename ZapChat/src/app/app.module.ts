@@ -9,7 +9,7 @@ import { ChatWindowComponent } from './chat-window/chat-window.component';
 
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-import { AuthenticateUserService } from './authenticate-user.service';
+import { AuthenticateUserService } from '../app/services/authenticate-user.service';
 import { TermsComponent } from './terms/terms.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactListComponent } from './contact-list/contact-list.component';
@@ -18,7 +18,12 @@ import {AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
 import { environment } from 'src/environments/environment';
 import { AddContactsComponent } from './add-contacts/add-contacts.component';
+import { NotificationComponent } from './notification/notification.component';
 import { FormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuth } from 'angularfire2/auth';
+import {AngularFireMessagingModule } from '@angular/fire/messaging';
+import { NotificationService } from '../app/notification.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,8 @@ import { FormsModule } from '@angular/forms';
     ContactListComponent,
     AddContactsComponent,
     ChatPageComponent,
-    ChatWindowComponent
+    ChatWindowComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -37,8 +43,18 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFireMessagingModule,
     FormsModule,
-    RouterModule.forRoot([                                // Gave path names to various components in routing
+    AngularFireAuthModule,
+    RouterModule.forRoot([
+      {
+        path: 'terms',
+        component: TermsComponent
+      },
+      {
+        path: 'signUp',
+        component: SignUpComponent
+      },
       {
         path: 'contactList',
         component: ContactListComponent
@@ -46,6 +62,10 @@ import { FormsModule } from '@angular/forms';
       {
         path: 'addContacts',
         component: AddContactsComponent
+      },
+      {
+        path: 'notification',
+        component: NotificationComponent
       },
       {
         path: 'chatPage/:number',

@@ -13,6 +13,7 @@ export class ContactListComponent implements OnInit{
 
   @Input() public mobileNo;
   @Output() public childEvent = new EventEmitter();
+  @Output() public contactName = new EventEmitter();
   contactList: any[];
   @ViewChild(ChatWindowComponent) chatWindowComponent: ChatWindowComponent;
 
@@ -30,8 +31,9 @@ export class ContactListComponent implements OnInit{
     });
   }
 // Show messages for the number
-  showMessages(number) {
+  showMessages(number,name) {
     this.childEvent.emit(number);
+    this.contactName.emit(name);
   }
 
 

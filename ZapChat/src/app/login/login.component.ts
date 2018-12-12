@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { LoginDetails } from './loginDetails';
-import { AuthenticateUserService } from '../authenticate-user.service';
+import { LoginDetails } from '../models/loginDetails';
+import { AuthenticateUserService } from '../services/authenticate-user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -15,7 +15,8 @@ phoneNumber: String = '';
 password: String = '';
 response: String = '';
 isValid: Boolean = true;
-
+active: Boolean = false;
+type: string = "text";
 constructor(private authenticate: AuthenticateUserService, private router: Router, private route: ActivatedRoute ) {
    }
 
@@ -65,9 +66,11 @@ validate() {
     }
     return this.isValid;
   }
-
  checkLogin(loginId, password) {
     this.authenticate.loginAuthenticate(loginId, password).subscribe(loginDetails => this.loginDetails = loginDetails);
     return true;
   }
-}
+  passwordControl() {
+    this.active = !this.active
+  }
+  }

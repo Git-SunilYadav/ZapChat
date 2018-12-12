@@ -13,14 +13,13 @@ export class ChatPageComponent implements OnInit, OnDestroy {
   public mobileNo: String;
   private sub: any;
   public messageNumber: String = '';
-  isContactListVisible = true;
+  public contactName:String='';
+  public isContactListVisible:boolean = true;
+  public userName:string = '';
   contactList: any[];
 
-  constructor(db: AngularFireDatabase, private route: ActivatedRoute ) {
-    db.list('/chat/8237292660/contactList/')
-    .valueChanges().subscribe(contact => {
-      this.contactList = contact;
-    });
+  constructor(private db: AngularFireDatabase, private route: ActivatedRoute ) {
+   
   }
 
   ngOnInit() {

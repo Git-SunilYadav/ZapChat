@@ -4,15 +4,8 @@ const router = express.Router();
 const APP = require('../../server-configuration/firebase_configuration');
 const db = APP.registerApplication().database();
 
-//api to show all user details
-router.get('/', (req, res, next) => {
-    res.status(200).json({
-        message: 'user details fetched'
-    })
-});
 
-
-//api for sign up
+//api to sign up new users
 router.post('/', (req, res, next) => {
     let ref = db.ref("chat/");
 
@@ -74,7 +67,7 @@ router.post('/login/', (req, res, next) => {
 });
 
 
-//api to send message
+//api to send messages between two users
 router.post('/sendMessage/', (req, res, next) => {
     let ref = db.ref("chat/");
     SendMessage(ref, req.body.senderNumber,req.body.receiverNumber,req.body.message, res, next, 'sent', function (data) {
@@ -104,7 +97,59 @@ router.post('/sendMessage/', (req, res, next) => {
     });
 });
 
-// Function to send message 
+//api to add contact in contactList
+router.post('/addContact/', (req, res, next) => {
+    let ref = db.ref("chat/" + req.body.phoneNumber + "/contactList/");
+    AddContact(ref, req, res, next,  function (data) {
+        if(data){
+            res.status(200).json({
+                phoneNumber: req.body.phoneNumber,
+                firstName: req.body.firstName,
+                newContact: req.body.newContact
+            }).end();
+            
+        }
+        else
+        {
+            res.status(500).json({
+            message: 'Contact not added'
+            }).end();
+        }
+
+    });
+});
+
+//api to reset count of unreadMessages
+router.put('/unreadMessages/', (req, res, next) => {
+    console.log(" unreadMessages put :  "+ req.body.senderNumber +"  "+ req.body.receiverNumber);
+    var ref = db.ref("chat/" + req.body.senderNumber + "/contactList/" + req.body.receiverNumber + "/");
+    UnreadMessages(ref, req, res, next,  function (data) {
+        if(data){
+            res.status(200).json({
+                message: 'UnreadMessages set to 0'
+            }).end();
+            
+        }
+        else
+        {
+            res.status(401).json({
+                message: 'UnreadMessages could not be reset'
+            }).end();
+        }
+
+    });
+});
+
+
+//api to show all user details
+router.get('/', (req, res, next) => {
+    res.status(200).json({
+        message: 'user details fetched'
+    })
+});
+
+
+// Function to send messages between two users 
 function SendMessage(ref, senderNumber,receiverNumber,message , res, next, messageType,callback) {
     ref.once("value", function (snap) {
         snap.forEach(function (data) {
@@ -118,14 +163,9 @@ function SendMessage(ref, senderNumber,receiverNumber,message , res, next, messa
                                 let contactRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/");
                                 contactRef.once("value", function (snap){
                                     snap.forEach(function (data){
-                                        console.log(" data.key : " + data.key);
                                         if(data.key == "unreadMessages"){
-
-                                            console.log(" unreadMessages key: " + data.key);
-                                            console.log(" unreadMessages value :" + data.val());
                                             let unreadMessages =  parseInt(data.val());
                                             unreadMessages = unreadMessages + 1;
-
                                             let contactRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/");
                                             
                                             contactRef.update({
@@ -145,71 +185,21 @@ function SendMessage(ref, senderNumber,receiverNumber,message , res, next, messa
                         }
                     });
                 });
-                //callback(true);
+                
             }
         });
-        //callback(false);
+        
     });
     callback(true);
 };
 
 
-//api to add contact in contactList
-router.post('/addContact/', (req, res, next) => {
-    console.log("req.body.phoneNumber " + req.body.phoneNumber);
-    console.log("req.body.firstName " + req.body.firstName);
-    console.log("req.body.newContact " + req.body.newContact);
-    let ref = db.ref("chat/" + req.body.phoneNumber + "/contactList/");
-    AddContact(ref, req, res, next,  function (data) {
-        if(data){
-            res.status(200).json({
-                phoneNumber: req.body.phoneNumber,
-                firstName: req.body.firstName,
-                newContact: req.body.newContact
-            }).end();
-            
-        }
-        else
-        {
-            res.status(500).json({
-            message: 'Contact not added'
-                }).end();
-        }
-
-    });
-});
-
-//api to update unreadMessages
-router.put('/unreadMessages/', (req, res, next) => {
-    var ref = db.ref("chat/" + req.body.mainNumber + "/contactList/" + req.body.contactNumber + "/");
-    UnreadMessages(ref, req, res, next,  function (data) {
-        if(data){
-            res.status(200).json({
-                message: 'UnreadMessages set to 0'
-            }).end();
-            
-        }
-        else
-        {
-            res.status(401).json({
-                message: 'UnreadMessages could not be reset'
-            }).end();
-        }
-
-    });
-});
-
-
-
-
-
-// Function to add Contact
+// Function to add Contact in the contactList
 function AddContact(ref, req, res, next,callback) {
 
     let newRef = db.ref("chat/" + req.body.phoneNumber + "/contactList/" + req.body.newContact);
-    console.log("chat/" + req.body.phoneNumber + "/contactList/" + req.body.newContact);
     newRef.set({
-         name: req.body.firstName,
+        name: req.body.firstName,
         phoneNumber: req.body.newContact,
         unreadMessages:0
     })
@@ -217,8 +207,7 @@ function AddContact(ref, req, res, next,callback) {
 };
 
 
-
-// Function to validate user 
+// Function to authenticate user 
 function AuthenticateUser(ref, req, res, next,callback) {
     ref.once("value", function (snap) {
         snap.forEach(function (data) {
@@ -230,11 +219,11 @@ function AuthenticateUser(ref, req, res, next,callback) {
     });
 };
 
+
 // Function to check for existing user 
 function UserExist(ref, req, res, next,callback) {
     let isUserExist = false;
     ref.once("value", function (snap) {
-       
         snap.forEach(function (number) {
             if (number.key == req.body.phoneNumber) {
                 isUserExist = true;
@@ -245,7 +234,7 @@ function UserExist(ref, req, res, next,callback) {
      });
 };
 
-// Function to create user 
+// Function to create new user 
 function CreateUser(ref, req, res, next,callback) {
    ref.set({
         name: req.body.firstName,
@@ -257,8 +246,9 @@ function CreateUser(ref, req, res, next,callback) {
 
 // Function to reset  unreadMessages 
 function UnreadMessages(ref, req, res, next,callback) {
-    ref.set({
-         unreadMessages: 0
+    let unreadMessages = 0 
+    ref.update({
+         unreadMessages
      }).then( function(){
          callback(true);
      });

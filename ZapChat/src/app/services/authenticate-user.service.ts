@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { LoginDetails } from './login/loginDetails';
-import { UserDetails } from './sign-up/UserDetails';
-import { Chat } from './chat-window/chat';
+import { LoginDetails } from '../models/loginDetails';
+import { UserDetails } from '../models/UserDetails';
+import { Chat } from '../models/chat';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -46,6 +46,18 @@ public chat: Chat;
     return this.http.post<Chat>('http://localhost:3000/user/sendMessage', this.chat)
     .pipe();
    }
+
+   resetUnreadCount (mobNumber, contactNumber): Observable<Chat> {
+     debugger;
+    this.chat = new Chat();
+    this.chat.message = "set unread to 0";
+    this.chat.senderNumber = mobNumber;
+    this.chat.receiverNumber = contactNumber;
+
+    return this.http.put<Chat>('http://localhost:3000/user/unreadMessages', this.chat)
+    .pipe();
+   }
+
 
 
 
