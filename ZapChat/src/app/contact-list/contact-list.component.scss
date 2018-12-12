@@ -18,7 +18,7 @@ $color_1: black;
   width: 25%;
   margin-top: 1px;
   height: 530px;
-  background-color: $background_color_3;
+  background-color: $background_color_1;
   position: absolute;
   overflow: scroll;
   overflow-y: visible;
@@ -63,7 +63,8 @@ ul {
   float: right;
   align-content: center;
   background-color: $background_color_4;
-  margin-top: 10px;
+  //margin-top: 10px;
+  margin-bottom: 10px;
   color: $background_color_1;
   width: 20px;
   height: 20px;
@@ -79,7 +80,7 @@ ul {
   float: right;
   align-content: center;
   //background-color: red;
-  margin-top: 10px;
+  //margin-top: 10px;
   width: 20px;
   height: 20px;
   padding: 2px;
@@ -89,6 +90,16 @@ ul {
   border-radius: 50px;
 }
 
+.contactPhoneNumber {
+  margin-left: 65px;
+  padding-top: 0px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding-bottom: 0px;
+  width: 130px;
+  height: 20px;
+  display:none;
+}
 .contactName {
   margin-left: 35px;
   padding-top: 0px;
@@ -100,15 +111,8 @@ ul {
   //display: inline block;
 }
 
-.contactPhoneNumber {
-  margin-left: 35px;
-  padding-top: 0px;
-  margin-top: 0px;
-  margin-bottom: 20px;
-  padding-bottom: 0px;
-  width: 130px;
-  height: 20px;
-  //display: inline block;
+li:hover .contactPhoneNumber{
+  display: block;
 }
 
 .profileImage {
@@ -117,3 +121,4 @@ ul {
   width: 30px;
   height: 30px;
 }
+
