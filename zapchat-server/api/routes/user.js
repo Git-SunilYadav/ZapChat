@@ -129,6 +129,27 @@ router.post('/addContact/', (req, res, next) => {
     });
 });
 
+//api to update unreadMessages
+router.put('/unreadMessages/', (req, res, next) => {
+    var ref = db.ref("chat/" + req.body.mainNumber + "/contactList/" + req.body.contactNumber + "/");
+    UnreadMessages(ref, req, res, next,  function (data) {
+        if(data){
+            res.status(200).json({
+                message: 'UnreadMessages set to 0'
+            }).end();
+            
+        }
+        else
+        {
+            res.status(401).json({
+                message: 'UnreadMessages could not be reset'
+            }).end();
+        }
+
+    });
+});
+
+
 
 // Function to send message 
 function SendMessage(ref, senderNumber,receiverNumber,message , res, next, messageType,callback) {
@@ -139,10 +160,29 @@ function SendMessage(ref, senderNumber,receiverNumber,message , res, next, messa
                 newRef.once("value", function (snap) {
                     snap.forEach(function (data){
                         if (data.key == receiverNumber){
+                            if(messageType == 'received'){
+
+                                let contactRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/");
+                                contactRef.once("value", function (snap){
+                                    if(snap.hasChild("unreadMessages")){
+                                        let counter = snap.unreadMessages;
+                                        counter = counter +1;
+                                        let contactRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/unreadMessages");
+                                        console.log("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/unreadMessages");
+                                        //console.log(unreadMessagesCounter);
+                                        contactRef.set({
+                                            counter
+                                       })
+                                        
+                                    }
+                                })
+                            }
+                            
                             let msgRef = db.ref("chat/" + senderNumber + "/contactList/"+ receiverNumber + "/chats/");
                             msgRef.push().set({
                                 message: message,
                                 type: messageType
+                        
                             });
                         }
                     });
@@ -207,5 +247,14 @@ function CreateUser(ref, req, res, next,callback) {
         callback(true);
     });
 };
+
+// Function to reset  unreadMessages 
+function UnreadMessages(ref, req, res, next,callback) {
+    ref.set({
+         unreadMessages: 0
+     }).then( function(){
+         callback(true);
+     });
+ };
 
 module.exports = router;
