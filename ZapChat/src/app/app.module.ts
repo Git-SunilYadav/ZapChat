@@ -44,6 +44,7 @@ import { NotificationService } from '../app/notification.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireMessagingModule,
+    FormsModule,
     AngularFireAuthModule,
     RouterModule.forRoot([
       {
@@ -67,7 +68,6 @@ import { NotificationService } from '../app/notification.service';
         component: NotificationComponent
       },
       {
-      
         path: 'chatPage/:number',
         component: ChatPageComponent
       },
@@ -92,7 +92,6 @@ import { NotificationService } from '../app/notification.service';
   providers: [
     AuthenticateUserService,
     NotificationService
-    
   ],
   bootstrap: [AppComponent]
 })
