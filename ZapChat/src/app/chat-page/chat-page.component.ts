@@ -13,7 +13,7 @@ export class ChatPageComponent implements OnInit, OnDestroy {
   public mobileNo: String;
   private sub: any;
   public messageNumber: String = '';
-  addContactWasClicked = false;
+  isContactListVisible = true;
   contactList: any[];
 
   constructor(db: AngularFireDatabase, private route: ActivatedRoute ) {
@@ -31,10 +31,10 @@ export class ChatPageComponent implements OnInit, OnDestroy {
   }
   // functions to toggle between add contacts and contact list
   setAddContacts(clicked: boolean) {
-      this.addContactWasClicked = clicked;
+      this.isContactListVisible = false;
     }
   setContactList(clicked: boolean) {
-    this.addContactWasClicked = !clicked;
+    this.isContactListVisible = true;
   }
   ngOnDestroy() {
     this.sub.unsubscribe();

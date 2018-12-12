@@ -10,13 +10,13 @@
 </div>
 <!--Adding the different components on the main chat page-->
 <div class="parentDiv">
-  <div [hidden]=addContactWasClicked class="contactListDiv">
-    <app-contact-list (childEvent)= "messageNumber=$event"  [mobileNo] = 'mobileNo' *ngIf="!addContactWasClicked"></app-contact-list>
+  <div [hidden]=!isContactListVisible class="contactListDiv">
+    <app-contact-list (childEvent)="messageNumber=$event" [mobileNo]='mobileNo' ></app-contact-list>
   </div>
-  <div [hidden]=!addContactWasClicked class="addContactDiv">
-    <app-add-contacts *ngIf="addContactWasClicked"></app-add-contacts>
+  <div [hidden]=isContactListVisible  class="addContactDiv">
+    <app-add-contacts ></app-add-contacts>
   </div>
   <div class="chatWindowDiv">
-    <app-chat-window [messageNumber] = 'messageNumber' [mobileNo] = 'mobileNo' ></app-chat-window>
+    <app-chat-window [messageNumber]='messageNumber' [mobileNo]='mobileNo'></app-chat-window>
   </div>
 </div>
