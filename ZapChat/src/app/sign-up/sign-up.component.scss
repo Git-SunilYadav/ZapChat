@@ -7,7 +7,6 @@ $font_family_1: Arial,
 Helvetica,
 sans-serif;
 $background_color_1: #ddd;
-$background_color_2: #4CAF50;
 $background_color_3: #f44336;
 $background_color_4: #474e5d;
 $background_color_5: #fefefe;
@@ -16,7 +15,6 @@ h1 {
   font-family: $font_family_1;
   //	font: 6em "Comic Sans MS";
   color: white;
-  padding-left: 1.5em;
 }
 p{
   color: white;
@@ -31,14 +29,7 @@ p{
   display: inline-block;
   margin-left: 10px;
 }
-a{
-  color:#66b3ff;
-  margin-left: 15px;
 
-&:visited{
-  color: #ffd633;
-}
-}
 .blackOverlay{
   position: absolute;
   top: 0;
@@ -54,8 +45,8 @@ a{
 .id01 {
   background-image: url('/assets/images/zapchat5.png');
   background-repeat: no-repeat;
-  height: 524px;
-  width: 1280px;
+  height: 510px;
+  width: 1250px;
   margin-bottom: -4px;
   margin-right: -2px;
   margin-left: -8px;
@@ -129,8 +120,7 @@ input[type=password] {
   }
 }
 button {
-  background-color: $background_color_2;
-  color: $color_1;
+  color : black ;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -145,16 +135,33 @@ button {
 
 .cancelButton {
   padding: 14px 20px;
-  background-color: $background_color_3;
+  background-image: linear-gradient(#ff1a1a , #ff8080 );
   float: center;
   width: 250px;
 }
+.cancel{
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
 
+  &:visited{
+    color: black;
+    text-decoration: none;
+    font-weight: bolder;
+  }
+}
 .signUpButton {
   float: center;
   width: 250px;
+  background-image: linear-gradient(#4E91D0,#b3ffff );
+  font-weight: bolder;
 }
-
+.termsLink{
+color:#66b3ff;
+&:visited{
+  color: #f5f255;
+}
+}
 .container {
   padding: 16px;
 }
@@ -176,7 +183,8 @@ button {
   background-color: $background_color_6;
   margin: 3% auto 3% auto;
   border: 1px solid rgb(248, 206, 206);
-  width: 45%;
+  width: 49%;
+  margin-left: -65px;
   box-sizing: border-box;
   position: absolute;
   top: 53px;
@@ -185,11 +193,6 @@ button {
   -webkit-box-shadow: 15px 5px 9px #999;
     box-shadow: 5px 10px 9px #999;
     z-index: 100002;
-}
-
-hr {
-  border: 1px solid $color_1;
-  margin-bottom: 25px;
 }
 
 .close {
@@ -233,16 +236,7 @@ hr {
     }
   }
 }
-.cancel{
-  background-color: $background_color_2;
-  float: center;
-  width: 250px;
-  text-decoration: none;
-  color: white;
-}
-a:visited{
-  text-decoration: none;
-}
+
 .rightStuff{
   margin-left: 100px;
 }
