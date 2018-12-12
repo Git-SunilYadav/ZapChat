@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AddContact } from './addContact';
-import {AddContactService} from '../add-contact.service';
+import { AddContact } from '../models/addContact';
+import {AddContactService} from '../services/add-contact.service';
 import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
 

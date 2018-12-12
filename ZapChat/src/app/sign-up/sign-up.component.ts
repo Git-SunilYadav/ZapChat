@@ -1,8 +1,8 @@
 import { LoginComponent } from './../login/login.component';
 import { ChatPageComponent } from './../chat-page/chat-page.component';
-import { UserDetails } from './UserDetails';
+import { UserDetails } from '../models/UserDetails';
 import { Component, OnInit } from '@angular/core';
-import { AuthenticateUserService } from '../authenticate-user.service';
+import { AuthenticateUserService } from '../services/authenticate-user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { callbackify } from 'util';
 @Component({

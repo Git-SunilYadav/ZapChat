@@ -1,9 +1,9 @@
 import { Component, OnInit, NgZone, Input, SimpleChanges, OnDestroy  } from '@angular/core';
-import { Chat } from './../chat-window/chat';
+import { Chat } from '../models/chat';
 import {AngularFireDatabase } from 'angularfire2/database';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { AuthenticateUserService } from '../authenticate-user.service';
+import { AuthenticateUserService } from '../services/authenticate-user.service';
 import { text } from '@angular/core/src/render3';
 import { FormsModule } from '@angular/forms';
 
