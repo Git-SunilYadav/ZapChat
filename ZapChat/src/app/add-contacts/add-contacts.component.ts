@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
 import { AddContact } from './addContact';
 import {AddContactService} from '../add-contact.service';
 import { RouterModule } from '@angular/router';
@@ -10,6 +10,9 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./add-contacts.component.scss']
 })
 export class AddContactsComponent implements OnInit {
+  @Input() public mobileNo;
+  @Output() public hideAddContactEvent = new EventEmitter();
+
   addContact: AddContact;
   phoneNumber: String = '';
   name: String = '';
@@ -26,7 +29,7 @@ export class AddContactsComponent implements OnInit {
       if (this.validate() && this.checkAddContact(this.addContact.newContact, this.addContact.firstName, this.addContact.phoneNumber)) {
         setTimeout(() => {
           if (this.addContact) {
-          alert('added Contact successfully');        
+          this.hideAddContactComponent() 
         } else {
           alert('Invalid credentials');
           }
@@ -51,7 +54,7 @@ export class AddContactsComponent implements OnInit {
       return false;
     } else {
       this.addContact.firstName = name;
-      this.addContact.phoneNumber = '8237292660';
+      this.addContact.phoneNumber = this.mobileNo;
     }
 
     return true;
@@ -59,5 +62,10 @@ export class AddContactsComponent implements OnInit {
 checkAddContact(contactNumber, name, phoneNumber) {
   this.add.addContactAuthenticate(contactNumber, name, phoneNumber).subscribe(addContact => this.addContact = addContact);
   return true;
+}
+
+// funtion to hide add contact component via event emitter
+hideAddContactComponent(){
+  this.hideAddContactEvent.emit(true);
 }
 }

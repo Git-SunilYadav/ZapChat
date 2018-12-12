@@ -47,6 +47,18 @@ public chat: Chat;
     .pipe();
    }
 
+   resetUnreadCount (mobNumber, contactNumber): Observable<Chat> {
+     debugger;
+    this.chat = new Chat();
+    this.chat.message = "set unread to 0";
+    this.chat.senderNumber = mobNumber;
+    this.chat.receiverNumber = contactNumber;
+
+    return this.http.put<Chat>('http://localhost:3000/user/unreadMessages', this.chat)
+    .pipe();
+   }
+
+
 
 
   }

@@ -39,6 +39,7 @@ export class ChatWindowComponent implements OnInit {
       this.chats = chat;
 
     });
+    this.resetUnreadCount(this.mobileNo, this.messageNumber);
   }
 
   clearText() {
@@ -65,5 +66,13 @@ export class ChatWindowComponent implements OnInit {
 
   ngOnDestroy() {
 
+  }
+
+  // reset unread message count to 0
+  resetUnreadCount(mobNumber,contactNumber){
+    if(mobNumber != ""  && contactNumber.toString() != ""){
+      this.authenticate.resetUnreadCount(mobNumber,contactNumber).subscribe(chat => this.chat = chat);
+    }
+   
   }
 }

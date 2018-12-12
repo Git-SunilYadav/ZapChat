@@ -181,7 +181,8 @@ router.post('/addContact/', (req, res, next) => {
 
 //api to update unreadMessages
 router.put('/unreadMessages/', (req, res, next) => {
-    var ref = db.ref("chat/" + req.body.mainNumber + "/contactList/" + req.body.contactNumber + "/");
+    console.log(" unreadMessages put :  "+ req.body.senderNumber +"  "+ req.body.receiverNumber);
+    var ref = db.ref("chat/" + req.body.senderNumber + "/contactList/" + req.body.receiverNumber + "/");
     UnreadMessages(ref, req, res, next,  function (data) {
         if(data){
             res.status(200).json({
@@ -257,8 +258,9 @@ function CreateUser(ref, req, res, next,callback) {
 
 // Function to reset  unreadMessages 
 function UnreadMessages(ref, req, res, next,callback) {
-    ref.set({
-         unreadMessages: 0
+    let unreadMessages = 0 
+    ref.update({
+         unreadMessages
      }).then( function(){
          callback(true);
      });
