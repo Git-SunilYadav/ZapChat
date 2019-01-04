@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebase :{
-    apiKey: "AIzaSyDAQYmToCIqzBopsxT0XTGn2xP5Obb4G0M",
-    authDomain: "zapdos-c4df5.firebaseapp.com",
-    databaseURL: "https://zapdos-c4df5.firebaseio.com",
-    projectId: "zapdos-c4df5",
-    storageBucket: "zapdos-c4df5.appspot.com",
-    messagingSenderId: "426315842830"
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: ""
   }
 };
 
