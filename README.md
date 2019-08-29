@@ -61,4 +61,4 @@ You will be redirected to the browser.
 
 ## Model Design
 
-<img src="https://github.com/neu-mis-info6150-fall-2018/final-project-thewolfpack/blob/master/Chat_Model_Design.svg" >
+<img src="https://github.com/Sunil-Y/ZapChat/blob/master/Chat_Model_Design.svg" >
